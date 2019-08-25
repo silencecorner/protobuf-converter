@@ -154,7 +154,7 @@ public final class Converter {
 			if (configuration.getIgnoredFields().ignored(protoClassAnnotation,field)) {
 				continue;
 			}
-			FieldResolver fieldResolver = fieldFactory.createResolver(field);
+			FieldResolver fieldResolver = fieldFactory.createResolver(configuration,field);
 			fillDomainField(fieldResolver, fieldMapper.mapToDomainField(fieldResolver, protobuf, domain));
 		}
 	}
@@ -280,7 +280,7 @@ public final class Converter {
 			if (configuration.getIgnoredFields().ignored(protoClassAnnotation,field)) {
 				continue;
 			}
-			FieldResolver fieldResolver = fieldFactory.createResolver(field);
+			FieldResolver fieldResolver = fieldFactory.createResolver(configuration,field);
 			fillProtobufField(fieldResolver, fieldMapper.mapToProtobufField(fieldResolver, domain, protobuf));
 		}
 	}

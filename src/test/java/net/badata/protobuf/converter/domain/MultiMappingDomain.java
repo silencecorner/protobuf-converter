@@ -1,6 +1,7 @@
 package net.badata.protobuf.converter.domain;
 
 import com.google.protobuf.Message;
+import net.badata.protobuf.converter.Configuration;
 import net.badata.protobuf.converter.annotation.ProtoClass;
 import net.badata.protobuf.converter.annotation.ProtoClasses;
 import net.badata.protobuf.converter.annotation.ProtoField;
@@ -78,12 +79,12 @@ public class MultiMappingDomain {
 		public static final String FIELD_LONG_VALUE = "longValue";
 
 		@Override
-		public FieldResolver createResolver(final Field field) {
+		public FieldResolver createResolver(final Configuration configuration,final Field field) {
 			if (FIELD_INT_VALUE.equals(field.getName())) {
-				return super.createResolver(field);
+				return super.createResolver(Configuration.builder().build(),field);
 			}
 			if (FIELD_LONG_VALUE.equals(field.getName())) {
-				DefaultFieldResolverImpl fieldResolver = (DefaultFieldResolverImpl) super.createResolver(field);
+				DefaultFieldResolverImpl fieldResolver = (DefaultFieldResolverImpl) super.createResolver(configuration,field);
 				fieldResolver.setProtobufName("longValueChanged");
 				return fieldResolver;
 			}

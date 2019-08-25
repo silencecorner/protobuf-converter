@@ -117,7 +117,7 @@ public class DefaultMapperTest {
 
 	private FieldResolver findDomainField(final String fieldName) {
 		try {
-			return fieldResolverFactory.createResolver(MappingDomain.Test.class.getDeclaredField(fieldName));
+			return fieldResolverFactory.createResolver(Configuration.builder().build(),MappingDomain.Test.class.getDeclaredField(fieldName));
 		} catch (NoSuchFieldException e) {
 			throw new IllegalArgumentException("No such field: " + fieldName, e);
 		}
@@ -224,7 +224,7 @@ public class DefaultMapperTest {
 
 	private FieldResolver findPrimitiveField(final String fieldName) {
 		try {
-			return fieldResolverFactory.createResolver(MappingDomain.PrimitiveTest.class.getDeclaredField(fieldName));
+			return fieldResolverFactory.createResolver(Configuration.builder().build(),MappingDomain.PrimitiveTest.class.getDeclaredField(fieldName));
 		} catch (NoSuchFieldException e) {
 			throw new IllegalArgumentException("No such field: " + fieldName, e);
 		}
@@ -240,7 +240,7 @@ public class DefaultMapperTest {
 
 	private FieldResolver findInaccessibleField(final String fieldName) {
 		try {
-			return fieldResolverFactory.createResolver(MappingDomain.InaccessibleTest.class.getDeclaredField
+			return fieldResolverFactory.createResolver(Configuration.builder().build(),MappingDomain.InaccessibleTest.class.getDeclaredField
 					(fieldName));
 		} catch (NoSuchFieldException e) {
 			throw new IllegalArgumentException("No such field: " + fieldName, e);

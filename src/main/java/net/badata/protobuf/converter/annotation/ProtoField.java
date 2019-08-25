@@ -4,6 +4,7 @@ import net.badata.protobuf.converter.inspection.DefaultValue;
 import net.badata.protobuf.converter.inspection.SimpleDefaultValueImpl;
 import net.badata.protobuf.converter.inspection.DefaultNullValueInspectorImpl;
 import net.badata.protobuf.converter.inspection.NullValueInspector;
+import net.badata.protobuf.converter.naming.NamingStrategy;
 import net.badata.protobuf.converter.type.DefaultConverterImpl;
 import net.badata.protobuf.converter.type.TypeConverter;
 
@@ -49,4 +50,10 @@ public @interface ProtoField {
 	 * @return Class for null check.
 	 */
 	Class<? extends NullValueInspector> nullValue() default DefaultNullValueInspectorImpl.class;
+
+	/**
+	 * proto字段的命名方式
+	 * @return 命名方式
+	 */
+	NamingStrategy namingStrategy() default NamingStrategy.NO_OP;
 }

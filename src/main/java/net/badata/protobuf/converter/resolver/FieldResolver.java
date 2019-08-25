@@ -2,6 +2,7 @@ package net.badata.protobuf.converter.resolver;
 
 import net.badata.protobuf.converter.inspection.DefaultValue;
 import net.badata.protobuf.converter.inspection.NullValueInspector;
+import net.badata.protobuf.converter.naming.NamingStrategy;
 import net.badata.protobuf.converter.type.TypeConverter;
 
 import java.lang.reflect.Field;
@@ -75,4 +76,8 @@ public interface FieldResolver {
 	 */
 	DefaultValue getDefaultValue();
 
+	/**
+	 *
+	 */
+	NamingStrategy getNamingStrategy();
 }

@@ -4,6 +4,7 @@ import net.badata.protobuf.converter.inspection.DefaultNullValueInspectorImpl;
 import net.badata.protobuf.converter.inspection.DefaultValue;
 import net.badata.protobuf.converter.inspection.NullValueInspector;
 import net.badata.protobuf.converter.inspection.SimpleDefaultValueImpl;
+import net.badata.protobuf.converter.naming.NamingStrategy;
 import net.badata.protobuf.converter.type.DefaultConverterImpl;
 import net.badata.protobuf.converter.type.TypeConverter;
 
@@ -28,7 +29,7 @@ public class DefaultFieldResolverImpl implements FieldResolver {
 	private TypeConverter<?, ?> converter;
 	private NullValueInspector nullValueInspector;
 	private DefaultValue defaultValue;
-
+	private NamingStrategy namingStrategy;
 
 	/**
 	 * Constructor.
@@ -109,6 +110,11 @@ public class DefaultFieldResolverImpl implements FieldResolver {
 		return defaultValue;
 	}
 
+	@Override
+	public NamingStrategy getNamingStrategy() {
+		return this.namingStrategy;
+	}
+
 	/**
 	 * Setter for protobuf field name.
 	 *
@@ -154,6 +160,11 @@ public class DefaultFieldResolverImpl implements FieldResolver {
 	public void setDefaultValue(final DefaultValue defaultValue) {
 		this.defaultValue = defaultValue;
 	}
+
+	public void setNamingStrategy(NamingStrategy namingStrategy) {
+		this.namingStrategy = namingStrategy;
+	}
+
 }
 
 
