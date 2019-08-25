@@ -234,7 +234,7 @@ public class DefaultMapperTest {
 	public void testInaccessibleDomainFiled() throws MappingException {
 		exception.expect(MappingException.class);
 		mapper.mapToProtobufField(findInaccessibleField("inaccessibleField"), inaccessibleTestDomain,
-				MappingProto.MappingTest.newBuilder());
+				MappingProto.InaccessibleTest.newBuilder());
 	}
 
 
@@ -251,6 +251,6 @@ public class DefaultMapperTest {
 	public void testProtectedDomainGetter() throws MappingException {
 		exception.expect(MappingException.class);
 		mapper.mapToProtobufField(findInaccessibleField("protectedGetterField"), inaccessibleTestDomain,
-				MappingProto.MappingTest.newBuilder());
+				MappingProto.InaccessibleTest.newBuilder());
 	}
 }

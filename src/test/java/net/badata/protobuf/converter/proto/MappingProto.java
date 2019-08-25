@@ -2183,6 +2183,692 @@ public final class MappingProto {
 
   }
 
+  public interface InaccessibleTestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:net.badata.protobuf.converter.proto.InaccessibleTest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string inaccessibleField = 1;</code>
+     */
+    java.lang.String getInaccessibleField();
+    /**
+     * <code>string inaccessibleField = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getInaccessibleFieldBytes();
+
+    /**
+     * <code>string protectedGetterField = 2;</code>
+     */
+    java.lang.String getProtectedGetterField();
+    /**
+     * <code>string protectedGetterField = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getProtectedGetterFieldBytes();
+  }
+  /**
+   * Protobuf type {@code net.badata.protobuf.converter.proto.InaccessibleTest}
+   */
+  public  static final class InaccessibleTest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:net.badata.protobuf.converter.proto.InaccessibleTest)
+      InaccessibleTestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use InaccessibleTest.newBuilder() to construct.
+    private InaccessibleTest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private InaccessibleTest() {
+      inaccessibleField_ = "";
+      protectedGetterField_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private InaccessibleTest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              inaccessibleField_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              protectedGetterField_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_InaccessibleTest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_InaccessibleTest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest.class, net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest.Builder.class);
+    }
+
+    public static final int INACCESSIBLEFIELD_FIELD_NUMBER = 1;
+    private volatile java.lang.Object inaccessibleField_;
+    /**
+     * <code>string inaccessibleField = 1;</code>
+     */
+    public java.lang.String getInaccessibleField() {
+      java.lang.Object ref = inaccessibleField_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        inaccessibleField_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string inaccessibleField = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getInaccessibleFieldBytes() {
+      java.lang.Object ref = inaccessibleField_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        inaccessibleField_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PROTECTEDGETTERFIELD_FIELD_NUMBER = 2;
+    private volatile java.lang.Object protectedGetterField_;
+    /**
+     * <code>string protectedGetterField = 2;</code>
+     */
+    public java.lang.String getProtectedGetterField() {
+      java.lang.Object ref = protectedGetterField_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        protectedGetterField_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string protectedGetterField = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getProtectedGetterFieldBytes() {
+      java.lang.Object ref = protectedGetterField_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        protectedGetterField_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getInaccessibleFieldBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, inaccessibleField_);
+      }
+      if (!getProtectedGetterFieldBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, protectedGetterField_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getInaccessibleFieldBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, inaccessibleField_);
+      }
+      if (!getProtectedGetterFieldBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, protectedGetterField_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest)) {
+        return super.equals(obj);
+      }
+      net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest other = (net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest) obj;
+
+      if (!getInaccessibleField()
+          .equals(other.getInaccessibleField())) return false;
+      if (!getProtectedGetterField()
+          .equals(other.getProtectedGetterField())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + INACCESSIBLEFIELD_FIELD_NUMBER;
+      hash = (53 * hash) + getInaccessibleField().hashCode();
+      hash = (37 * hash) + PROTECTEDGETTERFIELD_FIELD_NUMBER;
+      hash = (53 * hash) + getProtectedGetterField().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code net.badata.protobuf.converter.proto.InaccessibleTest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:net.badata.protobuf.converter.proto.InaccessibleTest)
+        net.badata.protobuf.converter.proto.MappingProto.InaccessibleTestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_InaccessibleTest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_InaccessibleTest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest.class, net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest.Builder.class);
+      }
+
+      // Construct using net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        inaccessibleField_ = "";
+
+        protectedGetterField_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_InaccessibleTest_descriptor;
+      }
+
+      @java.lang.Override
+      public net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest getDefaultInstanceForType() {
+        return net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest build() {
+        net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest buildPartial() {
+        net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest result = new net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest(this);
+        result.inaccessibleField_ = inaccessibleField_;
+        result.protectedGetterField_ = protectedGetterField_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest) {
+          return mergeFrom((net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest other) {
+        if (other == net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest.getDefaultInstance()) return this;
+        if (!other.getInaccessibleField().isEmpty()) {
+          inaccessibleField_ = other.inaccessibleField_;
+          onChanged();
+        }
+        if (!other.getProtectedGetterField().isEmpty()) {
+          protectedGetterField_ = other.protectedGetterField_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object inaccessibleField_ = "";
+      /**
+       * <code>string inaccessibleField = 1;</code>
+       */
+      public java.lang.String getInaccessibleField() {
+        java.lang.Object ref = inaccessibleField_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          inaccessibleField_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string inaccessibleField = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getInaccessibleFieldBytes() {
+        java.lang.Object ref = inaccessibleField_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          inaccessibleField_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string inaccessibleField = 1;</code>
+       */
+      public Builder setInaccessibleField(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        inaccessibleField_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string inaccessibleField = 1;</code>
+       */
+      public Builder clearInaccessibleField() {
+        
+        inaccessibleField_ = getDefaultInstance().getInaccessibleField();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string inaccessibleField = 1;</code>
+       */
+      public Builder setInaccessibleFieldBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        inaccessibleField_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object protectedGetterField_ = "";
+      /**
+       * <code>string protectedGetterField = 2;</code>
+       */
+      public java.lang.String getProtectedGetterField() {
+        java.lang.Object ref = protectedGetterField_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          protectedGetterField_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string protectedGetterField = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getProtectedGetterFieldBytes() {
+        java.lang.Object ref = protectedGetterField_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          protectedGetterField_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string protectedGetterField = 2;</code>
+       */
+      public Builder setProtectedGetterField(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        protectedGetterField_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string protectedGetterField = 2;</code>
+       */
+      public Builder clearProtectedGetterField() {
+        
+        protectedGetterField_ = getDefaultInstance().getProtectedGetterField();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string protectedGetterField = 2;</code>
+       */
+      public Builder setProtectedGetterFieldBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        protectedGetterField_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:net.badata.protobuf.converter.proto.InaccessibleTest)
+    }
+
+    // @@protoc_insertion_point(class_scope:net.badata.protobuf.converter.proto.InaccessibleTest)
+    private static final net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest();
+    }
+
+    public static net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<InaccessibleTest>
+        PARSER = new com.google.protobuf.AbstractParser<InaccessibleTest>() {
+      @java.lang.Override
+      public InaccessibleTest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new InaccessibleTest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<InaccessibleTest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<InaccessibleTest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public net.badata.protobuf.converter.proto.MappingProto.InaccessibleTest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_net_badata_protobuf_converter_proto_NestedTest_descriptor;
   private static final 
@@ -2193,6 +2879,11 @@ public final class MappingProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_net_badata_protobuf_converter_proto_MappingTest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_net_badata_protobuf_converter_proto_InaccessibleTest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_net_badata_protobuf_converter_proto_InaccessibleTest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2211,9 +2902,11 @@ public final class MappingProto {
       "alue\030\007 \001(\0132/.net.badata.protobuf.convert" +
       "er.proto.NestedTest\022\027\n\017stringListValue\030\010" +
       " \003(\t\022H\n\017nestedListValue\030\t \003(\0132/.net.bada" +
-      "ta.protobuf.converter.proto.NestedTestB3" +
-      "\n#net.badata.protobuf.converter.protoB\014M" +
-      "appingProtob\006proto3"
+      "ta.protobuf.converter.proto.NestedTest\"K" +
+      "\n\020InaccessibleTest\022\031\n\021inaccessibleField\030" +
+      "\001 \001(\t\022\034\n\024protectedGetterField\030\002 \001(\tB3\n#n" +
+      "et.badata.protobuf.converter.protoB\014Mapp" +
+      "ingProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2239,6 +2932,12 @@ public final class MappingProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_badata_protobuf_converter_proto_MappingTest_descriptor,
         new java.lang.String[] { "IntValue", "LongValue", "FloatValue", "DoubleValue", "BooleanValue", "StringValue", "NestedValue", "StringListValue", "NestedListValue", });
+    internal_static_net_badata_protobuf_converter_proto_InaccessibleTest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_net_badata_protobuf_converter_proto_InaccessibleTest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_net_badata_protobuf_converter_proto_InaccessibleTest_descriptor,
+        new java.lang.String[] { "InaccessibleField", "ProtectedGetterField", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

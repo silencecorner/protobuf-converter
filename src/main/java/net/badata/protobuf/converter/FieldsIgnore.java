@@ -1,5 +1,6 @@
 package net.badata.protobuf.converter;
 
+import net.badata.protobuf.converter.annotation.ProtoClass;
 import net.badata.protobuf.converter.annotation.ProtoField;
 import net.badata.protobuf.converter.support.PropertyNameCapturer;
 import net.badata.protobuf.converter.support.PropertyNameCapturingInterceptor;
@@ -65,7 +66,7 @@ public class FieldsIgnore{
 	}
 
     /**
-     * Add class to ignore map. Method {@link #ignored(Field) ignored()} return true if field type is similar to
+     * Add class to ignore map. Method {@link #ignored(ProtoClass,Field) ignored()} return true if field type is similar to
      * ignoreClass or field owner class is ignoreClass.
      *
      * @param ignoredClass Class for ignore.
@@ -152,10 +153,13 @@ public class FieldsIgnore{
      * @return true if field class or field name in the ignore or field is not annotated by
      * {@link net.badata.protobuf.converter.annotation.ProtoField ProtoField}.
      */
+    protected boolean ignored(ProtoClass protoClass, final Field field) {
+        return (!field.isAnnotationPresent(ProtoField.class) && protoClass.protoFieldAnnotationRequired()) || isClassIgnored(field) || isFieldIgnored(field);
+    }
+
     protected boolean ignored(final Field field) {
         return !field.isAnnotationPresent(ProtoField.class) || isClassIgnored(field) || isFieldIgnored(field);
     }
-
     private boolean isClassIgnored(final Field field) {
         Class<?> verifiedClass = FieldUtils.isCollectionType(field) ? FieldUtils.extractCollectionType(field) :
                 field.getType();
@@ -167,8 +171,12 @@ public class FieldsIgnore{
         Set<String> ignoredFields = ignoreMapping.get(field.getDeclaringClass());
         if (ignoredFields != null) {
             ProtoField annotation = field.getAnnotation(ProtoField.class);
-            return ignoredFields.isEmpty() || ignoredFields.contains(field.getName())
-                    || ignoredFields.contains(annotation.name());
+            if (annotation != null) {
+                return ignoredFields.isEmpty() || ignoredFields.contains(field.getName())
+                        || ignoredFields.contains(annotation.name());
+            }else{
+                return ignoredFields.isEmpty() || ignoredFields.contains(field.getName());
+            }
         }
         return false;
     }

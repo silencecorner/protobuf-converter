@@ -183,11 +183,11 @@ public class MappingDomain {
 	public static class InaccessibleTest {
 
 		@ProtoField
-		private Object inaccessibleField;
+		private String inaccessibleField;
 		@ProtoField
-		private Object protectedGetterField;
+		private String protectedGetterField;
 
-		protected Object getProtectedGetterField() {
+		protected String getProtectedGetterField() {
 			return protectedGetterField;
 		}
 	}

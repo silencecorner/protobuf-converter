@@ -112,7 +112,7 @@ public class DefaultMapperImpl implements Mapper {
 	public <T extends Message.Builder> MappingResult mapToProtobufField(final FieldResolver fieldResolver, final
 	Object domain, final T
 			protobufBuilder) throws MappingException {
-		Descriptors.FieldDescriptor fieldDescriptor = null;
+		Descriptors.FieldDescriptor fieldDescriptor;
 		if ( (fieldDescriptor = findFieldByName(protobufBuilder,fieldResolver)) != null){
 			Object domainFieldValue = getFieldValue(FieldUtils.createDomainGetterName(fieldResolver), domain);
 			if (FieldUtils.isComplexType(fieldResolver.getField())) {

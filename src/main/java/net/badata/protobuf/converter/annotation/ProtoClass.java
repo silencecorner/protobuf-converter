@@ -42,4 +42,10 @@ public @interface ProtoClass {
 	 * FieldResolverFactory}
 	 */
 	Class<? extends FieldResolverFactory> fieldFactory() default AnnotatedFieldResolverFactoryImpl.class;
+
+	/**
+	 * protoField是否必须
+	 * @return flag
+	 */
+	boolean protoFieldAnnotationRequired() default false;
 }

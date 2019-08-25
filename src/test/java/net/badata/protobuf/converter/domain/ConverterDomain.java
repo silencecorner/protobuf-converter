@@ -46,7 +46,6 @@ public class ConverterDomain {
 		@ProtoField
 		private PrimitiveTest primitiveValue;
 		// 不指定annotation
-		@ProtoField
 		private WrapperTest wrapperTest;
 		@ProtoField
 		private FieldConverterTest fieldConversionValue;

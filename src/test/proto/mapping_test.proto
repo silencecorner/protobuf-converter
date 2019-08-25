@@ -23,6 +23,11 @@ message MappingTest {
 }
 
 
+message InaccessibleTest {
+	string inaccessibleField = 1;
+	string protectedGetterField = 2;
+}
+
 
 
 

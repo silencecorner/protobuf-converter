@@ -151,7 +151,7 @@ public final class Converter {
 		Mapper fieldMapper = AnnotationUtils.createMapper(protoClassAnnotation);
 		FieldResolverFactory fieldFactory = AnnotationUtils.createFieldFactory(protoClassAnnotation);
 		for (Field field : getDomainFields(domainClass)) {
-			if (configuration.getIgnoredFields().ignored(field)) {
+			if (configuration.getIgnoredFields().ignored(protoClassAnnotation,field)) {
 				continue;
 			}
 			FieldResolver fieldResolver = fieldFactory.createResolver(field);
@@ -277,7 +277,7 @@ public final class Converter {
 			if (field.getName().equals("wrapperTest")){
 				System.out.printf("hahah");
 			}
-			if (configuration.getIgnoredFields().ignored(field)) {
+			if (configuration.getIgnoredFields().ignored(protoClassAnnotation,field)) {
 				continue;
 			}
 			FieldResolver fieldResolver = fieldFactory.createResolver(field);
