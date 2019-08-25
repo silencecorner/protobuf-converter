@@ -120,10 +120,9 @@ public class ConverterTest {
 	}
 
 	private void createIgnoredFieldsMap() {
-		fieldsIgnore = new FieldsIgnore();
-		fieldsIgnore.add(ConverterDomain.PrimitiveTest.class);
-		fieldsIgnore.add(ConverterDomain.FieldConverterTest.class, "enumString");
-		fieldsIgnore.add(ConverterDomain.Test.class, "boolValue");
+		fieldsIgnore = FieldsIgnore.lambda(ConverterDomain.FieldConverterTest.class,ConverterDomain.FieldConverterTest::getEnumString)
+				.add(ConverterDomain.PrimitiveTest.class)
+				.add(ConverterDomain.Test.class, ConverterDomain.Test::getBoolValue);
 	}
 
 
