@@ -84,6 +84,16 @@ public final class FieldUtils {
 	 * @param fieldResolver Domain object field resolver.
 	 * @return Protobuf field getter name.
 	 */
+	public static String createProtobufWrapperHasserName(final FieldResolver fieldResolver) {
+		return StringUtils.createMethodName(HASSER_PREFIX, fieldResolver.getProtobufName());
+	}
+
+	/**
+	 * Create protobuf getter name for domain field.
+	 *
+	 * @param fieldResolver Domain object field resolver.
+	 * @return Protobuf field getter name.
+	 */
 	public static String createProtobufGetterName(final FieldResolver fieldResolver) {
 		String getterName = StringUtils.createMethodName(GETTER_PREFIX, fieldResolver.getProtobufName());
 		if (isCollectionType(fieldResolver.getProtobufType())) {

@@ -1,11 +1,23 @@
 package net.badata.protobuf.converter.mapping;
 
-import com.google.protobuf.Message;
+import com.google.common.primitives.Primitives;
+import com.google.protobuf.*;
+import javafx.util.Pair;
 import net.badata.protobuf.converter.exception.MappingException;
 import net.badata.protobuf.converter.resolver.FieldResolver;
+import net.badata.protobuf.converter.type.*;
 import net.badata.protobuf.converter.utils.FieldUtils;
+import net.badata.protobuf.converter.utils.StringUtils;
 
+import java.lang.Enum;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 
 /**
@@ -16,6 +28,20 @@ import java.lang.reflect.InvocationTargetException;
  * @author Roman Gushel
  */
 public class DefaultMapperImpl implements Mapper {
+	public static ConcurrentMap<Pair<?, ?>, TypeConverter> TYPE_CONVERTER_CACHE = new ConcurrentHashMap<Pair<?, ?>, TypeConverter>() {{
+		put(new Pair<>(Date.class, Long.class), new DateLongConverterImpl());
+		put(new Pair<>(Enum.class, String.class), new EnumStringConverter());
+		put(new Pair<>(LocalDateTime.class, Timestamp.class), new LocalDateTimeConverterImpl());
+		put(new Pair<>(Set.class, List.class), new SetListConverterImpl());
+		put(new Pair<>(Boolean.class, BoolValue.class), new BooleanBoolValueConverterImpl());
+		put(new Pair<>(Double.class, DoubleValue.class), new DoubleDoubleValueConverterImpl());
+		put(new Pair<>(Float.class, FloatValue.class), new FloatFloatValueConverterImpl());
+		put(new Pair<>(Integer.class, Int32Value.class), new IntegerInt32ValueConverterImpl());
+		put(new Pair<>(Integer.class, UInt32Value.class), new IntegerUInt32ValueConverterImpl());
+		put(new Pair<>(Long.class, Int64Value.class), new LongInt64ValueConverterImpl());
+		put(new Pair<>(Long.class, UInt64Value.class), new LongUInt64ValueConverterImpl());
+		put(new Pair<>(String.class, StringValue.class), new StringStringValueConverterImpl());
+	}};
 
 	/**
 	 * {@inheritDoc}
@@ -40,9 +66,13 @@ public class DefaultMapperImpl implements Mapper {
 		if (FieldUtils.isCollectionType(fieldResolver.getField())) {
 			return new MappingResult(MappingResult.Result.COLLECTION_MAPPING, protobufFieldValue, domain);
 		}
+		TypeConverter<?, ?> typeConverter = TYPE_CONVERTER_CACHE.get(new Pair<>(Primitives.wrap(fieldResolver.getField().getType()),
+				Primitives.wrap(protobufFieldValue.getClass())));
+		if (typeConverter != null) {
+			fieldResolver.setTypeConverter(typeConverter);
+		}
 		return new MappingResult(MappingResult.Result.MAPPED, protobufFieldValue, domain);
 	}
-
 	private boolean hasFieldValue(final String hasserName, final Object source) throws MappingException {
 		Class<?> sourceClass = source.getClass();
 		try {
@@ -82,14 +112,27 @@ public class DefaultMapperImpl implements Mapper {
 	public <T extends Message.Builder> MappingResult mapToProtobufField(final FieldResolver fieldResolver, final
 	Object domain, final T
 			protobufBuilder) throws MappingException {
-		Object domainFieldValue = getFieldValue(FieldUtils.createDomainGetterName(fieldResolver), domain);
-		if (FieldUtils.isComplexType(fieldResolver.getField())) {
-			return new MappingResult(MappingResult.Result.NESTED_MAPPING, domainFieldValue, protobufBuilder);
+		Descriptors.FieldDescriptor fieldDescriptor = null;
+		if ( (fieldDescriptor = findFieldByName(protobufBuilder,fieldResolver)) != null){
+			Object domainFieldValue = getFieldValue(FieldUtils.createDomainGetterName(fieldResolver), domain);
+			if (FieldUtils.isComplexType(fieldResolver.getField())) {
+				return new MappingResult(MappingResult.Result.NESTED_MAPPING, domainFieldValue, protobufBuilder);
+			}
+			if (FieldUtils.isCollectionType(fieldResolver.getField())) {
+				return new MappingResult(MappingResult.Result.COLLECTION_MAPPING, domainFieldValue, protobufBuilder);
+			}
+			Object obj = protobufBuilder.getField(fieldDescriptor);
+			TypeConverter<?, ?> typeConverter = TYPE_CONVERTER_CACHE.get(new Pair<>(Primitives.wrap(fieldResolver.getField().getType()),
+					Primitives.wrap(obj.getClass())));
+			if (typeConverter != null) {
+				fieldResolver.setTypeConverter(typeConverter);
+			}
+			return new MappingResult(MappingResult.Result.MAPPED, domainFieldValue, protobufBuilder);
 		}
-		if (FieldUtils.isCollectionType(fieldResolver.getField())) {
-			return new MappingResult(MappingResult.Result.COLLECTION_MAPPING, domainFieldValue, protobufBuilder);
-		}
-		return new MappingResult(MappingResult.Result.MAPPED, domainFieldValue, protobufBuilder);
+		return null;
 	}
 
+	private static Descriptors.FieldDescriptor findFieldByName(Message.Builder builder, FieldResolver fieldResolver) {
+		return builder.getDescriptorForType().findFieldByName(fieldResolver.getProtobufName());
+	}
 }

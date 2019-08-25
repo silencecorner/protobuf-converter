@@ -4,6 +4,7 @@ package net.badata.protobuf.converter.proto;
 
 option java_package = "net.badata.protobuf.converter.proto";
 option java_outer_classname = "ConverterProto";
+import "google/protobuf/wrappers.proto";
 
 message PrimitiveTest {
     int32 intValue = 1;
@@ -11,6 +12,14 @@ message PrimitiveTest {
     float floatValue = 3;
     double doubleValue = 4;
     bool booleanValue = 5;
+}
+
+message WrapperTest {
+	google.protobuf.Int32Value intWrapperValue = 1;
+	google.protobuf.Int64Value longWrapperValue = 2;
+	google.protobuf.FloatValue floatWrapperValue = 3;
+	google.protobuf.DoubleValue doubleWrapperValue = 4;
+	google.protobuf.BoolValue booleanWrapperValue = 5;
 }
 
 message FieldConverterTest {
@@ -41,4 +50,5 @@ message ConverterTest {
 	repeated PrimitiveTest complexNullableCollectionValue = 13;
 	bytes bytesValue = 14;
 	ConverterTest recursiveValue = 15;
+	WrapperTest wrapperTest = 16;
 }

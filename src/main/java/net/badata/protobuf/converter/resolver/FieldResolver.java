@@ -57,6 +57,11 @@ public interface FieldResolver {
 	TypeConverter<?, ?> getTypeConverter();
 
 	/**
+	 * Setter for field type converter.
+	 */
+	void setTypeConverter(TypeConverter<?, ?>  typeConverter);
+
+	/**
 	 * Getter for protobuf field null value inspector.
 	 *
 	 * @return instance of null value inspector.

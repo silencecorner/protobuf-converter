@@ -56,11 +56,6 @@ public final class ConverterProto {
       super(builder);
     }
     private PrimitiveTest() {
-      intValue_ = 0;
-      longValue_ = 0L;
-      floatValue_ = 0F;
-      doubleValue_ = 0D;
-      booleanValue_ = false;
     }
 
     @java.lang.Override
@@ -87,13 +82,6 @@ public final class ConverterProto {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
 
               intValue_ = input.readInt32();
@@ -119,6 +107,13 @@ public final class ConverterProto {
               booleanValue_ = input.readBool();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -136,6 +131,7 @@ public final class ConverterProto {
       return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_PrimitiveTest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_PrimitiveTest_fieldAccessorTable
@@ -189,6 +185,7 @@ public final class ConverterProto {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -198,6 +195,7 @@ public final class ConverterProto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (intValue_ != 0) {
@@ -218,6 +216,7 @@ public final class ConverterProto {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -258,23 +257,20 @@ public final class ConverterProto {
       }
       net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest other = (net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest) obj;
 
-      boolean result = true;
-      result = result && (getIntValue()
-          == other.getIntValue());
-      result = result && (getLongValue()
-          == other.getLongValue());
-      result = result && (
-          java.lang.Float.floatToIntBits(getFloatValue())
-          == java.lang.Float.floatToIntBits(
-              other.getFloatValue()));
-      result = result && (
-          java.lang.Double.doubleToLongBits(getDoubleValue())
-          == java.lang.Double.doubleToLongBits(
-              other.getDoubleValue()));
-      result = result && (getBooleanValue()
-          == other.getBooleanValue());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getIntValue()
+          != other.getIntValue()) return false;
+      if (getLongValue()
+          != other.getLongValue()) return false;
+      if (java.lang.Float.floatToIntBits(getFloatValue())
+          != java.lang.Float.floatToIntBits(
+              other.getFloatValue())) return false;
+      if (java.lang.Double.doubleToLongBits(getDoubleValue())
+          != java.lang.Double.doubleToLongBits(
+              other.getDoubleValue())) return false;
+      if (getBooleanValue()
+          != other.getBooleanValue()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -373,6 +369,7 @@ public final class ConverterProto {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -380,6 +377,7 @@ public final class ConverterProto {
     public static Builder newBuilder(net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -403,6 +401,7 @@ public final class ConverterProto {
         return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_PrimitiveTest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_PrimitiveTest_fieldAccessorTable
@@ -425,6 +424,7 @@ public final class ConverterProto {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         intValue_ = 0;
@@ -440,15 +440,18 @@ public final class ConverterProto {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_PrimitiveTest_descriptor;
       }
 
+      @java.lang.Override
       public net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest getDefaultInstanceForType() {
         return net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest build() {
         net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest result = buildPartial();
         if (!result.isInitialized()) {
@@ -457,6 +460,7 @@ public final class ConverterProto {
         return result;
       }
 
+      @java.lang.Override
       public net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest buildPartial() {
         net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest result = new net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest(this);
         result.intValue_ = intValue_;
@@ -468,32 +472,39 @@ public final class ConverterProto {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest) {
           return mergeFrom((net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest)other);
@@ -525,10 +536,12 @@ public final class ConverterProto {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -676,11 +689,13 @@ public final class ConverterProto {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -702,6 +717,7 @@ public final class ConverterProto {
 
     private static final com.google.protobuf.Parser<PrimitiveTest>
         PARSER = new com.google.protobuf.AbstractParser<PrimitiveTest>() {
+      @java.lang.Override
       public PrimitiveTest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -719,7 +735,1390 @@ public final class ConverterProto {
       return PARSER;
     }
 
+    @java.lang.Override
     public net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface WrapperTestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:net.badata.protobuf.converter.proto.WrapperTest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+     */
+    boolean hasIntWrapperValue();
+    /**
+     * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+     */
+    com.google.protobuf.Int32Value getIntWrapperValue();
+    /**
+     * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+     */
+    com.google.protobuf.Int32ValueOrBuilder getIntWrapperValueOrBuilder();
+
+    /**
+     * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+     */
+    boolean hasLongWrapperValue();
+    /**
+     * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+     */
+    com.google.protobuf.Int64Value getLongWrapperValue();
+    /**
+     * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+     */
+    com.google.protobuf.Int64ValueOrBuilder getLongWrapperValueOrBuilder();
+
+    /**
+     * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+     */
+    boolean hasFloatWrapperValue();
+    /**
+     * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+     */
+    com.google.protobuf.FloatValue getFloatWrapperValue();
+    /**
+     * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+     */
+    com.google.protobuf.FloatValueOrBuilder getFloatWrapperValueOrBuilder();
+
+    /**
+     * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+     */
+    boolean hasDoubleWrapperValue();
+    /**
+     * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+     */
+    com.google.protobuf.DoubleValue getDoubleWrapperValue();
+    /**
+     * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+     */
+    com.google.protobuf.DoubleValueOrBuilder getDoubleWrapperValueOrBuilder();
+
+    /**
+     * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+     */
+    boolean hasBooleanWrapperValue();
+    /**
+     * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+     */
+    com.google.protobuf.BoolValue getBooleanWrapperValue();
+    /**
+     * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+     */
+    com.google.protobuf.BoolValueOrBuilder getBooleanWrapperValueOrBuilder();
+  }
+  /**
+   * Protobuf type {@code net.badata.protobuf.converter.proto.WrapperTest}
+   */
+  public  static final class WrapperTest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:net.badata.protobuf.converter.proto.WrapperTest)
+      WrapperTestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use WrapperTest.newBuilder() to construct.
+    private WrapperTest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private WrapperTest() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private WrapperTest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.Int32Value.Builder subBuilder = null;
+              if (intWrapperValue_ != null) {
+                subBuilder = intWrapperValue_.toBuilder();
+              }
+              intWrapperValue_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(intWrapperValue_);
+                intWrapperValue_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              com.google.protobuf.Int64Value.Builder subBuilder = null;
+              if (longWrapperValue_ != null) {
+                subBuilder = longWrapperValue_.toBuilder();
+              }
+              longWrapperValue_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(longWrapperValue_);
+                longWrapperValue_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              com.google.protobuf.FloatValue.Builder subBuilder = null;
+              if (floatWrapperValue_ != null) {
+                subBuilder = floatWrapperValue_.toBuilder();
+              }
+              floatWrapperValue_ = input.readMessage(com.google.protobuf.FloatValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(floatWrapperValue_);
+                floatWrapperValue_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              com.google.protobuf.DoubleValue.Builder subBuilder = null;
+              if (doubleWrapperValue_ != null) {
+                subBuilder = doubleWrapperValue_.toBuilder();
+              }
+              doubleWrapperValue_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(doubleWrapperValue_);
+                doubleWrapperValue_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 42: {
+              com.google.protobuf.BoolValue.Builder subBuilder = null;
+              if (booleanWrapperValue_ != null) {
+                subBuilder = booleanWrapperValue_.toBuilder();
+              }
+              booleanWrapperValue_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(booleanWrapperValue_);
+                booleanWrapperValue_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_WrapperTest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_WrapperTest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.class, net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.Builder.class);
+    }
+
+    public static final int INTWRAPPERVALUE_FIELD_NUMBER = 1;
+    private com.google.protobuf.Int32Value intWrapperValue_;
+    /**
+     * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+     */
+    public boolean hasIntWrapperValue() {
+      return intWrapperValue_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+     */
+    public com.google.protobuf.Int32Value getIntWrapperValue() {
+      return intWrapperValue_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : intWrapperValue_;
+    }
+    /**
+     * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+     */
+    public com.google.protobuf.Int32ValueOrBuilder getIntWrapperValueOrBuilder() {
+      return getIntWrapperValue();
+    }
+
+    public static final int LONGWRAPPERVALUE_FIELD_NUMBER = 2;
+    private com.google.protobuf.Int64Value longWrapperValue_;
+    /**
+     * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+     */
+    public boolean hasLongWrapperValue() {
+      return longWrapperValue_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+     */
+    public com.google.protobuf.Int64Value getLongWrapperValue() {
+      return longWrapperValue_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : longWrapperValue_;
+    }
+    /**
+     * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+     */
+    public com.google.protobuf.Int64ValueOrBuilder getLongWrapperValueOrBuilder() {
+      return getLongWrapperValue();
+    }
+
+    public static final int FLOATWRAPPERVALUE_FIELD_NUMBER = 3;
+    private com.google.protobuf.FloatValue floatWrapperValue_;
+    /**
+     * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+     */
+    public boolean hasFloatWrapperValue() {
+      return floatWrapperValue_ != null;
+    }
+    /**
+     * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+     */
+    public com.google.protobuf.FloatValue getFloatWrapperValue() {
+      return floatWrapperValue_ == null ? com.google.protobuf.FloatValue.getDefaultInstance() : floatWrapperValue_;
+    }
+    /**
+     * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+     */
+    public com.google.protobuf.FloatValueOrBuilder getFloatWrapperValueOrBuilder() {
+      return getFloatWrapperValue();
+    }
+
+    public static final int DOUBLEWRAPPERVALUE_FIELD_NUMBER = 4;
+    private com.google.protobuf.DoubleValue doubleWrapperValue_;
+    /**
+     * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+     */
+    public boolean hasDoubleWrapperValue() {
+      return doubleWrapperValue_ != null;
+    }
+    /**
+     * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+     */
+    public com.google.protobuf.DoubleValue getDoubleWrapperValue() {
+      return doubleWrapperValue_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : doubleWrapperValue_;
+    }
+    /**
+     * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+     */
+    public com.google.protobuf.DoubleValueOrBuilder getDoubleWrapperValueOrBuilder() {
+      return getDoubleWrapperValue();
+    }
+
+    public static final int BOOLEANWRAPPERVALUE_FIELD_NUMBER = 5;
+    private com.google.protobuf.BoolValue booleanWrapperValue_;
+    /**
+     * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+     */
+    public boolean hasBooleanWrapperValue() {
+      return booleanWrapperValue_ != null;
+    }
+    /**
+     * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+     */
+    public com.google.protobuf.BoolValue getBooleanWrapperValue() {
+      return booleanWrapperValue_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : booleanWrapperValue_;
+    }
+    /**
+     * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+     */
+    public com.google.protobuf.BoolValueOrBuilder getBooleanWrapperValueOrBuilder() {
+      return getBooleanWrapperValue();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (intWrapperValue_ != null) {
+        output.writeMessage(1, getIntWrapperValue());
+      }
+      if (longWrapperValue_ != null) {
+        output.writeMessage(2, getLongWrapperValue());
+      }
+      if (floatWrapperValue_ != null) {
+        output.writeMessage(3, getFloatWrapperValue());
+      }
+      if (doubleWrapperValue_ != null) {
+        output.writeMessage(4, getDoubleWrapperValue());
+      }
+      if (booleanWrapperValue_ != null) {
+        output.writeMessage(5, getBooleanWrapperValue());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (intWrapperValue_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getIntWrapperValue());
+      }
+      if (longWrapperValue_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getLongWrapperValue());
+      }
+      if (floatWrapperValue_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getFloatWrapperValue());
+      }
+      if (doubleWrapperValue_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getDoubleWrapperValue());
+      }
+      if (booleanWrapperValue_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getBooleanWrapperValue());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof net.badata.protobuf.converter.proto.ConverterProto.WrapperTest)) {
+        return super.equals(obj);
+      }
+      net.badata.protobuf.converter.proto.ConverterProto.WrapperTest other = (net.badata.protobuf.converter.proto.ConverterProto.WrapperTest) obj;
+
+      if (hasIntWrapperValue() != other.hasIntWrapperValue()) return false;
+      if (hasIntWrapperValue()) {
+        if (!getIntWrapperValue()
+            .equals(other.getIntWrapperValue())) return false;
+      }
+      if (hasLongWrapperValue() != other.hasLongWrapperValue()) return false;
+      if (hasLongWrapperValue()) {
+        if (!getLongWrapperValue()
+            .equals(other.getLongWrapperValue())) return false;
+      }
+      if (hasFloatWrapperValue() != other.hasFloatWrapperValue()) return false;
+      if (hasFloatWrapperValue()) {
+        if (!getFloatWrapperValue()
+            .equals(other.getFloatWrapperValue())) return false;
+      }
+      if (hasDoubleWrapperValue() != other.hasDoubleWrapperValue()) return false;
+      if (hasDoubleWrapperValue()) {
+        if (!getDoubleWrapperValue()
+            .equals(other.getDoubleWrapperValue())) return false;
+      }
+      if (hasBooleanWrapperValue() != other.hasBooleanWrapperValue()) return false;
+      if (hasBooleanWrapperValue()) {
+        if (!getBooleanWrapperValue()
+            .equals(other.getBooleanWrapperValue())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasIntWrapperValue()) {
+        hash = (37 * hash) + INTWRAPPERVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getIntWrapperValue().hashCode();
+      }
+      if (hasLongWrapperValue()) {
+        hash = (37 * hash) + LONGWRAPPERVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getLongWrapperValue().hashCode();
+      }
+      if (hasFloatWrapperValue()) {
+        hash = (37 * hash) + FLOATWRAPPERVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getFloatWrapperValue().hashCode();
+      }
+      if (hasDoubleWrapperValue()) {
+        hash = (37 * hash) + DOUBLEWRAPPERVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getDoubleWrapperValue().hashCode();
+      }
+      if (hasBooleanWrapperValue()) {
+        hash = (37 * hash) + BOOLEANWRAPPERVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getBooleanWrapperValue().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(net.badata.protobuf.converter.proto.ConverterProto.WrapperTest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code net.badata.protobuf.converter.proto.WrapperTest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:net.badata.protobuf.converter.proto.WrapperTest)
+        net.badata.protobuf.converter.proto.ConverterProto.WrapperTestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_WrapperTest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_WrapperTest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.class, net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.Builder.class);
+      }
+
+      // Construct using net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (intWrapperValueBuilder_ == null) {
+          intWrapperValue_ = null;
+        } else {
+          intWrapperValue_ = null;
+          intWrapperValueBuilder_ = null;
+        }
+        if (longWrapperValueBuilder_ == null) {
+          longWrapperValue_ = null;
+        } else {
+          longWrapperValue_ = null;
+          longWrapperValueBuilder_ = null;
+        }
+        if (floatWrapperValueBuilder_ == null) {
+          floatWrapperValue_ = null;
+        } else {
+          floatWrapperValue_ = null;
+          floatWrapperValueBuilder_ = null;
+        }
+        if (doubleWrapperValueBuilder_ == null) {
+          doubleWrapperValue_ = null;
+        } else {
+          doubleWrapperValue_ = null;
+          doubleWrapperValueBuilder_ = null;
+        }
+        if (booleanWrapperValueBuilder_ == null) {
+          booleanWrapperValue_ = null;
+        } else {
+          booleanWrapperValue_ = null;
+          booleanWrapperValueBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_WrapperTest_descriptor;
+      }
+
+      @java.lang.Override
+      public net.badata.protobuf.converter.proto.ConverterProto.WrapperTest getDefaultInstanceForType() {
+        return net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public net.badata.protobuf.converter.proto.ConverterProto.WrapperTest build() {
+        net.badata.protobuf.converter.proto.ConverterProto.WrapperTest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public net.badata.protobuf.converter.proto.ConverterProto.WrapperTest buildPartial() {
+        net.badata.protobuf.converter.proto.ConverterProto.WrapperTest result = new net.badata.protobuf.converter.proto.ConverterProto.WrapperTest(this);
+        if (intWrapperValueBuilder_ == null) {
+          result.intWrapperValue_ = intWrapperValue_;
+        } else {
+          result.intWrapperValue_ = intWrapperValueBuilder_.build();
+        }
+        if (longWrapperValueBuilder_ == null) {
+          result.longWrapperValue_ = longWrapperValue_;
+        } else {
+          result.longWrapperValue_ = longWrapperValueBuilder_.build();
+        }
+        if (floatWrapperValueBuilder_ == null) {
+          result.floatWrapperValue_ = floatWrapperValue_;
+        } else {
+          result.floatWrapperValue_ = floatWrapperValueBuilder_.build();
+        }
+        if (doubleWrapperValueBuilder_ == null) {
+          result.doubleWrapperValue_ = doubleWrapperValue_;
+        } else {
+          result.doubleWrapperValue_ = doubleWrapperValueBuilder_.build();
+        }
+        if (booleanWrapperValueBuilder_ == null) {
+          result.booleanWrapperValue_ = booleanWrapperValue_;
+        } else {
+          result.booleanWrapperValue_ = booleanWrapperValueBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.badata.protobuf.converter.proto.ConverterProto.WrapperTest) {
+          return mergeFrom((net.badata.protobuf.converter.proto.ConverterProto.WrapperTest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(net.badata.protobuf.converter.proto.ConverterProto.WrapperTest other) {
+        if (other == net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.getDefaultInstance()) return this;
+        if (other.hasIntWrapperValue()) {
+          mergeIntWrapperValue(other.getIntWrapperValue());
+        }
+        if (other.hasLongWrapperValue()) {
+          mergeLongWrapperValue(other.getLongWrapperValue());
+        }
+        if (other.hasFloatWrapperValue()) {
+          mergeFloatWrapperValue(other.getFloatWrapperValue());
+        }
+        if (other.hasDoubleWrapperValue()) {
+          mergeDoubleWrapperValue(other.getDoubleWrapperValue());
+        }
+        if (other.hasBooleanWrapperValue()) {
+          mergeBooleanWrapperValue(other.getBooleanWrapperValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        net.badata.protobuf.converter.proto.ConverterProto.WrapperTest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (net.badata.protobuf.converter.proto.ConverterProto.WrapperTest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.Int32Value intWrapperValue_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> intWrapperValueBuilder_;
+      /**
+       * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+       */
+      public boolean hasIntWrapperValue() {
+        return intWrapperValueBuilder_ != null || intWrapperValue_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+       */
+      public com.google.protobuf.Int32Value getIntWrapperValue() {
+        if (intWrapperValueBuilder_ == null) {
+          return intWrapperValue_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : intWrapperValue_;
+        } else {
+          return intWrapperValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+       */
+      public Builder setIntWrapperValue(com.google.protobuf.Int32Value value) {
+        if (intWrapperValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          intWrapperValue_ = value;
+          onChanged();
+        } else {
+          intWrapperValueBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+       */
+      public Builder setIntWrapperValue(
+          com.google.protobuf.Int32Value.Builder builderForValue) {
+        if (intWrapperValueBuilder_ == null) {
+          intWrapperValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          intWrapperValueBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+       */
+      public Builder mergeIntWrapperValue(com.google.protobuf.Int32Value value) {
+        if (intWrapperValueBuilder_ == null) {
+          if (intWrapperValue_ != null) {
+            intWrapperValue_ =
+              com.google.protobuf.Int32Value.newBuilder(intWrapperValue_).mergeFrom(value).buildPartial();
+          } else {
+            intWrapperValue_ = value;
+          }
+          onChanged();
+        } else {
+          intWrapperValueBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+       */
+      public Builder clearIntWrapperValue() {
+        if (intWrapperValueBuilder_ == null) {
+          intWrapperValue_ = null;
+          onChanged();
+        } else {
+          intWrapperValue_ = null;
+          intWrapperValueBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+       */
+      public com.google.protobuf.Int32Value.Builder getIntWrapperValueBuilder() {
+        
+        onChanged();
+        return getIntWrapperValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+       */
+      public com.google.protobuf.Int32ValueOrBuilder getIntWrapperValueOrBuilder() {
+        if (intWrapperValueBuilder_ != null) {
+          return intWrapperValueBuilder_.getMessageOrBuilder();
+        } else {
+          return intWrapperValue_ == null ?
+              com.google.protobuf.Int32Value.getDefaultInstance() : intWrapperValue_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Int32Value intWrapperValue = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> 
+          getIntWrapperValueFieldBuilder() {
+        if (intWrapperValueBuilder_ == null) {
+          intWrapperValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>(
+                  getIntWrapperValue(),
+                  getParentForChildren(),
+                  isClean());
+          intWrapperValue_ = null;
+        }
+        return intWrapperValueBuilder_;
+      }
+
+      private com.google.protobuf.Int64Value longWrapperValue_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> longWrapperValueBuilder_;
+      /**
+       * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+       */
+      public boolean hasLongWrapperValue() {
+        return longWrapperValueBuilder_ != null || longWrapperValue_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+       */
+      public com.google.protobuf.Int64Value getLongWrapperValue() {
+        if (longWrapperValueBuilder_ == null) {
+          return longWrapperValue_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : longWrapperValue_;
+        } else {
+          return longWrapperValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+       */
+      public Builder setLongWrapperValue(com.google.protobuf.Int64Value value) {
+        if (longWrapperValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          longWrapperValue_ = value;
+          onChanged();
+        } else {
+          longWrapperValueBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+       */
+      public Builder setLongWrapperValue(
+          com.google.protobuf.Int64Value.Builder builderForValue) {
+        if (longWrapperValueBuilder_ == null) {
+          longWrapperValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          longWrapperValueBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+       */
+      public Builder mergeLongWrapperValue(com.google.protobuf.Int64Value value) {
+        if (longWrapperValueBuilder_ == null) {
+          if (longWrapperValue_ != null) {
+            longWrapperValue_ =
+              com.google.protobuf.Int64Value.newBuilder(longWrapperValue_).mergeFrom(value).buildPartial();
+          } else {
+            longWrapperValue_ = value;
+          }
+          onChanged();
+        } else {
+          longWrapperValueBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+       */
+      public Builder clearLongWrapperValue() {
+        if (longWrapperValueBuilder_ == null) {
+          longWrapperValue_ = null;
+          onChanged();
+        } else {
+          longWrapperValue_ = null;
+          longWrapperValueBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+       */
+      public com.google.protobuf.Int64Value.Builder getLongWrapperValueBuilder() {
+        
+        onChanged();
+        return getLongWrapperValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+       */
+      public com.google.protobuf.Int64ValueOrBuilder getLongWrapperValueOrBuilder() {
+        if (longWrapperValueBuilder_ != null) {
+          return longWrapperValueBuilder_.getMessageOrBuilder();
+        } else {
+          return longWrapperValue_ == null ?
+              com.google.protobuf.Int64Value.getDefaultInstance() : longWrapperValue_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Int64Value longWrapperValue = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> 
+          getLongWrapperValueFieldBuilder() {
+        if (longWrapperValueBuilder_ == null) {
+          longWrapperValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>(
+                  getLongWrapperValue(),
+                  getParentForChildren(),
+                  isClean());
+          longWrapperValue_ = null;
+        }
+        return longWrapperValueBuilder_;
+      }
+
+      private com.google.protobuf.FloatValue floatWrapperValue_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> floatWrapperValueBuilder_;
+      /**
+       * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+       */
+      public boolean hasFloatWrapperValue() {
+        return floatWrapperValueBuilder_ != null || floatWrapperValue_ != null;
+      }
+      /**
+       * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+       */
+      public com.google.protobuf.FloatValue getFloatWrapperValue() {
+        if (floatWrapperValueBuilder_ == null) {
+          return floatWrapperValue_ == null ? com.google.protobuf.FloatValue.getDefaultInstance() : floatWrapperValue_;
+        } else {
+          return floatWrapperValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+       */
+      public Builder setFloatWrapperValue(com.google.protobuf.FloatValue value) {
+        if (floatWrapperValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          floatWrapperValue_ = value;
+          onChanged();
+        } else {
+          floatWrapperValueBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+       */
+      public Builder setFloatWrapperValue(
+          com.google.protobuf.FloatValue.Builder builderForValue) {
+        if (floatWrapperValueBuilder_ == null) {
+          floatWrapperValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          floatWrapperValueBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+       */
+      public Builder mergeFloatWrapperValue(com.google.protobuf.FloatValue value) {
+        if (floatWrapperValueBuilder_ == null) {
+          if (floatWrapperValue_ != null) {
+            floatWrapperValue_ =
+              com.google.protobuf.FloatValue.newBuilder(floatWrapperValue_).mergeFrom(value).buildPartial();
+          } else {
+            floatWrapperValue_ = value;
+          }
+          onChanged();
+        } else {
+          floatWrapperValueBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+       */
+      public Builder clearFloatWrapperValue() {
+        if (floatWrapperValueBuilder_ == null) {
+          floatWrapperValue_ = null;
+          onChanged();
+        } else {
+          floatWrapperValue_ = null;
+          floatWrapperValueBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+       */
+      public com.google.protobuf.FloatValue.Builder getFloatWrapperValueBuilder() {
+        
+        onChanged();
+        return getFloatWrapperValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+       */
+      public com.google.protobuf.FloatValueOrBuilder getFloatWrapperValueOrBuilder() {
+        if (floatWrapperValueBuilder_ != null) {
+          return floatWrapperValueBuilder_.getMessageOrBuilder();
+        } else {
+          return floatWrapperValue_ == null ?
+              com.google.protobuf.FloatValue.getDefaultInstance() : floatWrapperValue_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.FloatValue floatWrapperValue = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> 
+          getFloatWrapperValueFieldBuilder() {
+        if (floatWrapperValueBuilder_ == null) {
+          floatWrapperValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder>(
+                  getFloatWrapperValue(),
+                  getParentForChildren(),
+                  isClean());
+          floatWrapperValue_ = null;
+        }
+        return floatWrapperValueBuilder_;
+      }
+
+      private com.google.protobuf.DoubleValue doubleWrapperValue_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> doubleWrapperValueBuilder_;
+      /**
+       * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+       */
+      public boolean hasDoubleWrapperValue() {
+        return doubleWrapperValueBuilder_ != null || doubleWrapperValue_ != null;
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+       */
+      public com.google.protobuf.DoubleValue getDoubleWrapperValue() {
+        if (doubleWrapperValueBuilder_ == null) {
+          return doubleWrapperValue_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : doubleWrapperValue_;
+        } else {
+          return doubleWrapperValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+       */
+      public Builder setDoubleWrapperValue(com.google.protobuf.DoubleValue value) {
+        if (doubleWrapperValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          doubleWrapperValue_ = value;
+          onChanged();
+        } else {
+          doubleWrapperValueBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+       */
+      public Builder setDoubleWrapperValue(
+          com.google.protobuf.DoubleValue.Builder builderForValue) {
+        if (doubleWrapperValueBuilder_ == null) {
+          doubleWrapperValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          doubleWrapperValueBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+       */
+      public Builder mergeDoubleWrapperValue(com.google.protobuf.DoubleValue value) {
+        if (doubleWrapperValueBuilder_ == null) {
+          if (doubleWrapperValue_ != null) {
+            doubleWrapperValue_ =
+              com.google.protobuf.DoubleValue.newBuilder(doubleWrapperValue_).mergeFrom(value).buildPartial();
+          } else {
+            doubleWrapperValue_ = value;
+          }
+          onChanged();
+        } else {
+          doubleWrapperValueBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+       */
+      public Builder clearDoubleWrapperValue() {
+        if (doubleWrapperValueBuilder_ == null) {
+          doubleWrapperValue_ = null;
+          onChanged();
+        } else {
+          doubleWrapperValue_ = null;
+          doubleWrapperValueBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+       */
+      public com.google.protobuf.DoubleValue.Builder getDoubleWrapperValueBuilder() {
+        
+        onChanged();
+        return getDoubleWrapperValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+       */
+      public com.google.protobuf.DoubleValueOrBuilder getDoubleWrapperValueOrBuilder() {
+        if (doubleWrapperValueBuilder_ != null) {
+          return doubleWrapperValueBuilder_.getMessageOrBuilder();
+        } else {
+          return doubleWrapperValue_ == null ?
+              com.google.protobuf.DoubleValue.getDefaultInstance() : doubleWrapperValue_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue doubleWrapperValue = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> 
+          getDoubleWrapperValueFieldBuilder() {
+        if (doubleWrapperValueBuilder_ == null) {
+          doubleWrapperValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder>(
+                  getDoubleWrapperValue(),
+                  getParentForChildren(),
+                  isClean());
+          doubleWrapperValue_ = null;
+        }
+        return doubleWrapperValueBuilder_;
+      }
+
+      private com.google.protobuf.BoolValue booleanWrapperValue_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> booleanWrapperValueBuilder_;
+      /**
+       * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+       */
+      public boolean hasBooleanWrapperValue() {
+        return booleanWrapperValueBuilder_ != null || booleanWrapperValue_ != null;
+      }
+      /**
+       * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+       */
+      public com.google.protobuf.BoolValue getBooleanWrapperValue() {
+        if (booleanWrapperValueBuilder_ == null) {
+          return booleanWrapperValue_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : booleanWrapperValue_;
+        } else {
+          return booleanWrapperValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+       */
+      public Builder setBooleanWrapperValue(com.google.protobuf.BoolValue value) {
+        if (booleanWrapperValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          booleanWrapperValue_ = value;
+          onChanged();
+        } else {
+          booleanWrapperValueBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+       */
+      public Builder setBooleanWrapperValue(
+          com.google.protobuf.BoolValue.Builder builderForValue) {
+        if (booleanWrapperValueBuilder_ == null) {
+          booleanWrapperValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          booleanWrapperValueBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+       */
+      public Builder mergeBooleanWrapperValue(com.google.protobuf.BoolValue value) {
+        if (booleanWrapperValueBuilder_ == null) {
+          if (booleanWrapperValue_ != null) {
+            booleanWrapperValue_ =
+              com.google.protobuf.BoolValue.newBuilder(booleanWrapperValue_).mergeFrom(value).buildPartial();
+          } else {
+            booleanWrapperValue_ = value;
+          }
+          onChanged();
+        } else {
+          booleanWrapperValueBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+       */
+      public Builder clearBooleanWrapperValue() {
+        if (booleanWrapperValueBuilder_ == null) {
+          booleanWrapperValue_ = null;
+          onChanged();
+        } else {
+          booleanWrapperValue_ = null;
+          booleanWrapperValueBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+       */
+      public com.google.protobuf.BoolValue.Builder getBooleanWrapperValueBuilder() {
+        
+        onChanged();
+        return getBooleanWrapperValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+       */
+      public com.google.protobuf.BoolValueOrBuilder getBooleanWrapperValueOrBuilder() {
+        if (booleanWrapperValueBuilder_ != null) {
+          return booleanWrapperValueBuilder_.getMessageOrBuilder();
+        } else {
+          return booleanWrapperValue_ == null ?
+              com.google.protobuf.BoolValue.getDefaultInstance() : booleanWrapperValue_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.BoolValue booleanWrapperValue = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> 
+          getBooleanWrapperValueFieldBuilder() {
+        if (booleanWrapperValueBuilder_ == null) {
+          booleanWrapperValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder>(
+                  getBooleanWrapperValue(),
+                  getParentForChildren(),
+                  isClean());
+          booleanWrapperValue_ = null;
+        }
+        return booleanWrapperValueBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:net.badata.protobuf.converter.proto.WrapperTest)
+    }
+
+    // @@protoc_insertion_point(class_scope:net.badata.protobuf.converter.proto.WrapperTest)
+    private static final net.badata.protobuf.converter.proto.ConverterProto.WrapperTest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new net.badata.protobuf.converter.proto.ConverterProto.WrapperTest();
+    }
+
+    public static net.badata.protobuf.converter.proto.ConverterProto.WrapperTest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<WrapperTest>
+        PARSER = new com.google.protobuf.AbstractParser<WrapperTest>() {
+      @java.lang.Override
+      public WrapperTest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new WrapperTest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<WrapperTest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<WrapperTest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public net.badata.protobuf.converter.proto.ConverterProto.WrapperTest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -777,7 +2176,6 @@ public final class ConverterProto {
     }
     private FieldConverterTest() {
       enumString_ = "";
-      dateLong_ = 0L;
       stringSetValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -805,13 +2203,6 @@ public final class ConverterProto {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -825,11 +2216,18 @@ public final class ConverterProto {
             }
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
                 stringSetValue_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000004;
               }
               stringSetValue_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -840,7 +2238,7 @@ public final class ConverterProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
           stringSetValue_ = stringSetValue_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
@@ -852,6 +2250,7 @@ public final class ConverterProto {
       return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_FieldConverterTest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_FieldConverterTest_fieldAccessorTable
@@ -933,6 +2332,7 @@ public final class ConverterProto {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -942,6 +2342,7 @@ public final class ConverterProto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getEnumStringBytes().isEmpty()) {
@@ -956,6 +2357,7 @@ public final class ConverterProto {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -991,15 +2393,14 @@ public final class ConverterProto {
       }
       net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest other = (net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest) obj;
 
-      boolean result = true;
-      result = result && getEnumString()
-          .equals(other.getEnumString());
-      result = result && (getDateLong()
-          == other.getDateLong());
-      result = result && getStringSetValueList()
-          .equals(other.getStringSetValueList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getEnumString()
+          .equals(other.getEnumString())) return false;
+      if (getDateLong()
+          != other.getDateLong()) return false;
+      if (!getStringSetValueList()
+          .equals(other.getStringSetValueList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1093,6 +2494,7 @@ public final class ConverterProto {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1100,6 +2502,7 @@ public final class ConverterProto {
     public static Builder newBuilder(net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1123,6 +2526,7 @@ public final class ConverterProto {
         return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_FieldConverterTest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_FieldConverterTest_fieldAccessorTable
@@ -1145,6 +2549,7 @@ public final class ConverterProto {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         enumString_ = "";
@@ -1156,15 +2561,18 @@ public final class ConverterProto {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_FieldConverterTest_descriptor;
       }
 
+      @java.lang.Override
       public net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest getDefaultInstanceForType() {
         return net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest build() {
         net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest result = buildPartial();
         if (!result.isInitialized()) {
@@ -1173,13 +2581,14 @@ public final class ConverterProto {
         return result;
       }
 
+      @java.lang.Override
       public net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest buildPartial() {
         net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest result = new net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.enumString_ = enumString_;
         result.dateLong_ = dateLong_;
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           stringSetValue_ = stringSetValue_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000004);
         }
@@ -1189,32 +2598,39 @@ public final class ConverterProto {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest) {
           return mergeFrom((net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest)other);
@@ -1248,10 +2664,12 @@ public final class ConverterProto {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1368,7 +2786,7 @@ public final class ConverterProto {
 
       private com.google.protobuf.LazyStringList stringSetValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureStringSetValueIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           stringSetValue_ = new com.google.protobuf.LazyStringArrayList(stringSetValue_);
           bitField0_ |= 0x00000004;
          }
@@ -1459,11 +2877,13 @@ public final class ConverterProto {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1485,6 +2905,7 @@ public final class ConverterProto {
 
     private static final com.google.protobuf.Parser<FieldConverterTest>
         PARSER = new com.google.protobuf.AbstractParser<FieldConverterTest>() {
+      @java.lang.Override
       public FieldConverterTest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1502,6 +2923,7 @@ public final class ConverterProto {
       return PARSER;
     }
 
+    @java.lang.Override
     public net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1586,13 +3008,6 @@ public final class ConverterProto {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -1618,6 +3033,13 @@ public final class ConverterProto {
 
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1635,6 +3057,7 @@ public final class ConverterProto {
       return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_NullDefaultTest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_NullDefaultTest_fieldAccessorTable
@@ -1732,6 +3155,7 @@ public final class ConverterProto {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1741,6 +3165,7 @@ public final class ConverterProto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getNullStringBytes().isEmpty()) {
@@ -1755,6 +3180,7 @@ public final class ConverterProto {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1785,18 +3211,17 @@ public final class ConverterProto {
       }
       net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest other = (net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest) obj;
 
-      boolean result = true;
-      result = result && getNullString()
-          .equals(other.getNullString());
-      result = result && getCustomInspectionString()
-          .equals(other.getCustomInspectionString());
-      result = result && (hasDefaultPrimitives() == other.hasDefaultPrimitives());
+      if (!getNullString()
+          .equals(other.getNullString())) return false;
+      if (!getCustomInspectionString()
+          .equals(other.getCustomInspectionString())) return false;
+      if (hasDefaultPrimitives() != other.hasDefaultPrimitives()) return false;
       if (hasDefaultPrimitives()) {
-        result = result && getDefaultPrimitives()
-            .equals(other.getDefaultPrimitives());
+        if (!getDefaultPrimitives()
+            .equals(other.getDefaultPrimitives())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1889,6 +3314,7 @@ public final class ConverterProto {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1896,6 +3322,7 @@ public final class ConverterProto {
     public static Builder newBuilder(net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1919,6 +3346,7 @@ public final class ConverterProto {
         return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_NullDefaultTest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_NullDefaultTest_fieldAccessorTable
@@ -1941,6 +3369,7 @@ public final class ConverterProto {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         nullString_ = "";
@@ -1956,15 +3385,18 @@ public final class ConverterProto {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_NullDefaultTest_descriptor;
       }
 
+      @java.lang.Override
       public net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest getDefaultInstanceForType() {
         return net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest build() {
         net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest result = buildPartial();
         if (!result.isInitialized()) {
@@ -1973,6 +3405,7 @@ public final class ConverterProto {
         return result;
       }
 
+      @java.lang.Override
       public net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest buildPartial() {
         net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest result = new net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest(this);
         result.nullString_ = nullString_;
@@ -1986,32 +3419,39 @@ public final class ConverterProto {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest) {
           return mergeFrom((net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest)other);
@@ -2039,10 +3479,12 @@ public final class ConverterProto {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2199,7 +3641,7 @@ public final class ConverterProto {
         return this;
       }
 
-      private net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest defaultPrimitives_ = null;
+      private net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest defaultPrimitives_;
       private com.google.protobuf.SingleFieldBuilderV3<
           net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest, net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest.Builder, net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTestOrBuilder> defaultPrimitivesBuilder_;
       /**
@@ -2315,11 +3757,13 @@ public final class ConverterProto {
         }
         return defaultPrimitivesBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2341,6 +3785,7 @@ public final class ConverterProto {
 
     private static final com.google.protobuf.Parser<NullDefaultTest>
         PARSER = new com.google.protobuf.AbstractParser<NullDefaultTest>() {
+      @java.lang.Override
       public NullDefaultTest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2358,6 +3803,7 @@ public final class ConverterProto {
       return PARSER;
     }
 
+    @java.lang.Override
     public net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2550,6 +3996,19 @@ public final class ConverterProto {
      * <code>.net.badata.protobuf.converter.proto.ConverterTest recursiveValue = 15;</code>
      */
     net.badata.protobuf.converter.proto.ConverterProto.ConverterTestOrBuilder getRecursiveValueOrBuilder();
+
+    /**
+     * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+     */
+    boolean hasWrapperTest();
+    /**
+     * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+     */
+    net.badata.protobuf.converter.proto.ConverterProto.WrapperTest getWrapperTest();
+    /**
+     * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+     */
+    net.badata.protobuf.converter.proto.ConverterProto.WrapperTestOrBuilder getWrapperTestOrBuilder();
   }
   /**
    * Protobuf type {@code net.badata.protobuf.converter.proto.ConverterTest}
@@ -2564,11 +4023,6 @@ public final class ConverterProto {
       super(builder);
     }
     private ConverterTest() {
-      intValue_ = 0;
-      longValue_ = 0L;
-      floatValue_ = 0F;
-      doubleValue_ = 0D;
-      booleanValue_ = false;
       stringValue_ = "";
       stringListValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       complexListValue_ = java.util.Collections.emptyList();
@@ -2601,13 +4055,6 @@ public final class ConverterProto {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
 
               intValue_ = input.readInt32();
@@ -2680,7 +4127,7 @@ public final class ConverterProto {
             }
             case 82: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+              if (!((mutable_bitField0_ & 0x00000200) != 0)) {
                 stringListValue_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000200;
               }
@@ -2688,7 +4135,7 @@ public final class ConverterProto {
               break;
             }
             case 90: {
-              if (!((mutable_bitField0_ & 0x00000400) == 0x00000400)) {
+              if (!((mutable_bitField0_ & 0x00000400) != 0)) {
                 complexListValue_ = new java.util.ArrayList<net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest>();
                 mutable_bitField0_ |= 0x00000400;
               }
@@ -2697,7 +4144,7 @@ public final class ConverterProto {
               break;
             }
             case 98: {
-              if (!((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
+              if (!((mutable_bitField0_ & 0x00000800) != 0)) {
                 complexSetValue_ = new java.util.ArrayList<net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest>();
                 mutable_bitField0_ |= 0x00000800;
               }
@@ -2706,7 +4153,7 @@ public final class ConverterProto {
               break;
             }
             case 106: {
-              if (!((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
+              if (!((mutable_bitField0_ & 0x00001000) != 0)) {
                 complexNullableCollectionValue_ = new java.util.ArrayList<net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest>();
                 mutable_bitField0_ |= 0x00001000;
               }
@@ -2732,6 +4179,26 @@ public final class ConverterProto {
 
               break;
             }
+            case 130: {
+              net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.Builder subBuilder = null;
+              if (wrapperTest_ != null) {
+                subBuilder = wrapperTest_.toBuilder();
+              }
+              wrapperTest_ = input.readMessage(net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(wrapperTest_);
+                wrapperTest_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2740,16 +4207,16 @@ public final class ConverterProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+        if (((mutable_bitField0_ & 0x00000200) != 0)) {
           stringListValue_ = stringListValue_.getUnmodifiableView();
         }
-        if (((mutable_bitField0_ & 0x00000400) == 0x00000400)) {
+        if (((mutable_bitField0_ & 0x00000400) != 0)) {
           complexListValue_ = java.util.Collections.unmodifiableList(complexListValue_);
         }
-        if (((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
+        if (((mutable_bitField0_ & 0x00000800) != 0)) {
           complexSetValue_ = java.util.Collections.unmodifiableList(complexSetValue_);
         }
-        if (((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
+        if (((mutable_bitField0_ & 0x00001000) != 0)) {
           complexNullableCollectionValue_ = java.util.Collections.unmodifiableList(complexNullableCollectionValue_);
         }
         this.unknownFields = unknownFields.build();
@@ -2761,6 +4228,7 @@ public final class ConverterProto {
       return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_ConverterTest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_ConverterTest_fieldAccessorTable
@@ -3075,7 +4543,29 @@ public final class ConverterProto {
       return getRecursiveValue();
     }
 
+    public static final int WRAPPERTEST_FIELD_NUMBER = 16;
+    private net.badata.protobuf.converter.proto.ConverterProto.WrapperTest wrapperTest_;
+    /**
+     * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+     */
+    public boolean hasWrapperTest() {
+      return wrapperTest_ != null;
+    }
+    /**
+     * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+     */
+    public net.badata.protobuf.converter.proto.ConverterProto.WrapperTest getWrapperTest() {
+      return wrapperTest_ == null ? net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.getDefaultInstance() : wrapperTest_;
+    }
+    /**
+     * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+     */
+    public net.badata.protobuf.converter.proto.ConverterProto.WrapperTestOrBuilder getWrapperTestOrBuilder() {
+      return getWrapperTest();
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3085,6 +4575,7 @@ public final class ConverterProto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (intValue_ != 0) {
@@ -3132,9 +4623,13 @@ public final class ConverterProto {
       if (recursiveValue_ != null) {
         output.writeMessage(15, getRecursiveValue());
       }
+      if (wrapperTest_ != null) {
+        output.writeMessage(16, getWrapperTest());
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3203,6 +4698,10 @@ public final class ConverterProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(15, getRecursiveValue());
       }
+      if (wrapperTest_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(16, getWrapperTest());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3218,55 +4717,57 @@ public final class ConverterProto {
       }
       net.badata.protobuf.converter.proto.ConverterProto.ConverterTest other = (net.badata.protobuf.converter.proto.ConverterProto.ConverterTest) obj;
 
-      boolean result = true;
-      result = result && (getIntValue()
-          == other.getIntValue());
-      result = result && (getLongValue()
-          == other.getLongValue());
-      result = result && (
-          java.lang.Float.floatToIntBits(getFloatValue())
-          == java.lang.Float.floatToIntBits(
-              other.getFloatValue()));
-      result = result && (
-          java.lang.Double.doubleToLongBits(getDoubleValue())
-          == java.lang.Double.doubleToLongBits(
-              other.getDoubleValue()));
-      result = result && (getBooleanValue()
-          == other.getBooleanValue());
-      result = result && getStringValue()
-          .equals(other.getStringValue());
-      result = result && (hasPrimitiveValue() == other.hasPrimitiveValue());
+      if (getIntValue()
+          != other.getIntValue()) return false;
+      if (getLongValue()
+          != other.getLongValue()) return false;
+      if (java.lang.Float.floatToIntBits(getFloatValue())
+          != java.lang.Float.floatToIntBits(
+              other.getFloatValue())) return false;
+      if (java.lang.Double.doubleToLongBits(getDoubleValue())
+          != java.lang.Double.doubleToLongBits(
+              other.getDoubleValue())) return false;
+      if (getBooleanValue()
+          != other.getBooleanValue()) return false;
+      if (!getStringValue()
+          .equals(other.getStringValue())) return false;
+      if (hasPrimitiveValue() != other.hasPrimitiveValue()) return false;
       if (hasPrimitiveValue()) {
-        result = result && getPrimitiveValue()
-            .equals(other.getPrimitiveValue());
+        if (!getPrimitiveValue()
+            .equals(other.getPrimitiveValue())) return false;
       }
-      result = result && (hasFieldConversionValue() == other.hasFieldConversionValue());
+      if (hasFieldConversionValue() != other.hasFieldConversionValue()) return false;
       if (hasFieldConversionValue()) {
-        result = result && getFieldConversionValue()
-            .equals(other.getFieldConversionValue());
+        if (!getFieldConversionValue()
+            .equals(other.getFieldConversionValue())) return false;
       }
-      result = result && (hasNullDefaultValue() == other.hasNullDefaultValue());
+      if (hasNullDefaultValue() != other.hasNullDefaultValue()) return false;
       if (hasNullDefaultValue()) {
-        result = result && getNullDefaultValue()
-            .equals(other.getNullDefaultValue());
+        if (!getNullDefaultValue()
+            .equals(other.getNullDefaultValue())) return false;
       }
-      result = result && getStringListValueList()
-          .equals(other.getStringListValueList());
-      result = result && getComplexListValueList()
-          .equals(other.getComplexListValueList());
-      result = result && getComplexSetValueList()
-          .equals(other.getComplexSetValueList());
-      result = result && getComplexNullableCollectionValueList()
-          .equals(other.getComplexNullableCollectionValueList());
-      result = result && getBytesValue()
-          .equals(other.getBytesValue());
-      result = result && (hasRecursiveValue() == other.hasRecursiveValue());
+      if (!getStringListValueList()
+          .equals(other.getStringListValueList())) return false;
+      if (!getComplexListValueList()
+          .equals(other.getComplexListValueList())) return false;
+      if (!getComplexSetValueList()
+          .equals(other.getComplexSetValueList())) return false;
+      if (!getComplexNullableCollectionValueList()
+          .equals(other.getComplexNullableCollectionValueList())) return false;
+      if (!getBytesValue()
+          .equals(other.getBytesValue())) return false;
+      if (hasRecursiveValue() != other.hasRecursiveValue()) return false;
       if (hasRecursiveValue()) {
-        result = result && getRecursiveValue()
-            .equals(other.getRecursiveValue());
+        if (!getRecursiveValue()
+            .equals(other.getRecursiveValue())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (hasWrapperTest() != other.hasWrapperTest()) return false;
+      if (hasWrapperTest()) {
+        if (!getWrapperTest()
+            .equals(other.getWrapperTest())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -3325,6 +4826,10 @@ public final class ConverterProto {
       if (hasRecursiveValue()) {
         hash = (37 * hash) + RECURSIVEVALUE_FIELD_NUMBER;
         hash = (53 * hash) + getRecursiveValue().hashCode();
+      }
+      if (hasWrapperTest()) {
+        hash = (37 * hash) + WRAPPERTEST_FIELD_NUMBER;
+        hash = (53 * hash) + getWrapperTest().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3401,6 +4906,7 @@ public final class ConverterProto {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3408,6 +4914,7 @@ public final class ConverterProto {
     public static Builder newBuilder(net.badata.protobuf.converter.proto.ConverterProto.ConverterTest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3431,6 +4938,7 @@ public final class ConverterProto {
         return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_ConverterTest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_ConverterTest_fieldAccessorTable
@@ -3456,6 +4964,7 @@ public final class ConverterProto {
           getComplexNullableCollectionValueFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         intValue_ = 0;
@@ -3516,18 +5025,27 @@ public final class ConverterProto {
           recursiveValue_ = null;
           recursiveValueBuilder_ = null;
         }
+        if (wrapperTestBuilder_ == null) {
+          wrapperTest_ = null;
+        } else {
+          wrapperTest_ = null;
+          wrapperTestBuilder_ = null;
+        }
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_ConverterTest_descriptor;
       }
 
+      @java.lang.Override
       public net.badata.protobuf.converter.proto.ConverterProto.ConverterTest getDefaultInstanceForType() {
         return net.badata.protobuf.converter.proto.ConverterProto.ConverterTest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public net.badata.protobuf.converter.proto.ConverterProto.ConverterTest build() {
         net.badata.protobuf.converter.proto.ConverterProto.ConverterTest result = buildPartial();
         if (!result.isInitialized()) {
@@ -3536,6 +5054,7 @@ public final class ConverterProto {
         return result;
       }
 
+      @java.lang.Override
       public net.badata.protobuf.converter.proto.ConverterProto.ConverterTest buildPartial() {
         net.badata.protobuf.converter.proto.ConverterProto.ConverterTest result = new net.badata.protobuf.converter.proto.ConverterProto.ConverterTest(this);
         int from_bitField0_ = bitField0_;
@@ -3561,13 +5080,13 @@ public final class ConverterProto {
         } else {
           result.nullDefaultValue_ = nullDefaultValueBuilder_.build();
         }
-        if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        if (((bitField0_ & 0x00000200) != 0)) {
           stringListValue_ = stringListValue_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000200);
         }
         result.stringListValue_ = stringListValue_;
         if (complexListValueBuilder_ == null) {
-          if (((bitField0_ & 0x00000400) == 0x00000400)) {
+          if (((bitField0_ & 0x00000400) != 0)) {
             complexListValue_ = java.util.Collections.unmodifiableList(complexListValue_);
             bitField0_ = (bitField0_ & ~0x00000400);
           }
@@ -3576,7 +5095,7 @@ public final class ConverterProto {
           result.complexListValue_ = complexListValueBuilder_.build();
         }
         if (complexSetValueBuilder_ == null) {
-          if (((bitField0_ & 0x00000800) == 0x00000800)) {
+          if (((bitField0_ & 0x00000800) != 0)) {
             complexSetValue_ = java.util.Collections.unmodifiableList(complexSetValue_);
             bitField0_ = (bitField0_ & ~0x00000800);
           }
@@ -3585,7 +5104,7 @@ public final class ConverterProto {
           result.complexSetValue_ = complexSetValueBuilder_.build();
         }
         if (complexNullableCollectionValueBuilder_ == null) {
-          if (((bitField0_ & 0x00001000) == 0x00001000)) {
+          if (((bitField0_ & 0x00001000) != 0)) {
             complexNullableCollectionValue_ = java.util.Collections.unmodifiableList(complexNullableCollectionValue_);
             bitField0_ = (bitField0_ & ~0x00001000);
           }
@@ -3599,37 +5118,49 @@ public final class ConverterProto {
         } else {
           result.recursiveValue_ = recursiveValueBuilder_.build();
         }
+        if (wrapperTestBuilder_ == null) {
+          result.wrapperTest_ = wrapperTest_;
+        } else {
+          result.wrapperTest_ = wrapperTestBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof net.badata.protobuf.converter.proto.ConverterProto.ConverterTest) {
           return mergeFrom((net.badata.protobuf.converter.proto.ConverterProto.ConverterTest)other);
@@ -3763,15 +5294,20 @@ public final class ConverterProto {
         if (other.hasRecursiveValue()) {
           mergeRecursiveValue(other.getRecursiveValue());
         }
+        if (other.hasWrapperTest()) {
+          mergeWrapperTest(other.getWrapperTest());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3990,7 +5526,7 @@ public final class ConverterProto {
         return this;
       }
 
-      private net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest primitiveValue_ = null;
+      private net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest primitiveValue_;
       private com.google.protobuf.SingleFieldBuilderV3<
           net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest, net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest.Builder, net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTestOrBuilder> primitiveValueBuilder_;
       /**
@@ -4107,7 +5643,7 @@ public final class ConverterProto {
         return primitiveValueBuilder_;
       }
 
-      private net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest fieldConversionValue_ = null;
+      private net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest fieldConversionValue_;
       private com.google.protobuf.SingleFieldBuilderV3<
           net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest, net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTest.Builder, net.badata.protobuf.converter.proto.ConverterProto.FieldConverterTestOrBuilder> fieldConversionValueBuilder_;
       /**
@@ -4224,7 +5760,7 @@ public final class ConverterProto {
         return fieldConversionValueBuilder_;
       }
 
-      private net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest nullDefaultValue_ = null;
+      private net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest nullDefaultValue_;
       private com.google.protobuf.SingleFieldBuilderV3<
           net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest, net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTest.Builder, net.badata.protobuf.converter.proto.ConverterProto.NullDefaultTestOrBuilder> nullDefaultValueBuilder_;
       /**
@@ -4343,7 +5879,7 @@ public final class ConverterProto {
 
       private com.google.protobuf.LazyStringList stringListValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureStringListValueIsMutable() {
-        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
+        if (!((bitField0_ & 0x00000200) != 0)) {
           stringListValue_ = new com.google.protobuf.LazyStringArrayList(stringListValue_);
           bitField0_ |= 0x00000200;
          }
@@ -4438,7 +5974,7 @@ public final class ConverterProto {
       private java.util.List<net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest> complexListValue_ =
         java.util.Collections.emptyList();
       private void ensureComplexListValueIsMutable() {
-        if (!((bitField0_ & 0x00000400) == 0x00000400)) {
+        if (!((bitField0_ & 0x00000400) != 0)) {
           complexListValue_ = new java.util.ArrayList<net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest>(complexListValue_);
           bitField0_ |= 0x00000400;
          }
@@ -4667,7 +6203,7 @@ public final class ConverterProto {
           complexListValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest, net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest.Builder, net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTestOrBuilder>(
                   complexListValue_,
-                  ((bitField0_ & 0x00000400) == 0x00000400),
+                  ((bitField0_ & 0x00000400) != 0),
                   getParentForChildren(),
                   isClean());
           complexListValue_ = null;
@@ -4678,7 +6214,7 @@ public final class ConverterProto {
       private java.util.List<net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest> complexSetValue_ =
         java.util.Collections.emptyList();
       private void ensureComplexSetValueIsMutable() {
-        if (!((bitField0_ & 0x00000800) == 0x00000800)) {
+        if (!((bitField0_ & 0x00000800) != 0)) {
           complexSetValue_ = new java.util.ArrayList<net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest>(complexSetValue_);
           bitField0_ |= 0x00000800;
          }
@@ -4907,7 +6443,7 @@ public final class ConverterProto {
           complexSetValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest, net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest.Builder, net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTestOrBuilder>(
                   complexSetValue_,
-                  ((bitField0_ & 0x00000800) == 0x00000800),
+                  ((bitField0_ & 0x00000800) != 0),
                   getParentForChildren(),
                   isClean());
           complexSetValue_ = null;
@@ -4918,7 +6454,7 @@ public final class ConverterProto {
       private java.util.List<net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest> complexNullableCollectionValue_ =
         java.util.Collections.emptyList();
       private void ensureComplexNullableCollectionValueIsMutable() {
-        if (!((bitField0_ & 0x00001000) == 0x00001000)) {
+        if (!((bitField0_ & 0x00001000) != 0)) {
           complexNullableCollectionValue_ = new java.util.ArrayList<net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest>(complexNullableCollectionValue_);
           bitField0_ |= 0x00001000;
          }
@@ -5147,7 +6683,7 @@ public final class ConverterProto {
           complexNullableCollectionValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest, net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTest.Builder, net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTestOrBuilder>(
                   complexNullableCollectionValue_,
-                  ((bitField0_ & 0x00001000) == 0x00001000),
+                  ((bitField0_ & 0x00001000) != 0),
                   getParentForChildren(),
                   isClean());
           complexNullableCollectionValue_ = null;
@@ -5184,7 +6720,7 @@ public final class ConverterProto {
         return this;
       }
 
-      private net.badata.protobuf.converter.proto.ConverterProto.ConverterTest recursiveValue_ = null;
+      private net.badata.protobuf.converter.proto.ConverterProto.ConverterTest recursiveValue_;
       private com.google.protobuf.SingleFieldBuilderV3<
           net.badata.protobuf.converter.proto.ConverterProto.ConverterTest, net.badata.protobuf.converter.proto.ConverterProto.ConverterTest.Builder, net.badata.protobuf.converter.proto.ConverterProto.ConverterTestOrBuilder> recursiveValueBuilder_;
       /**
@@ -5300,11 +6836,130 @@ public final class ConverterProto {
         }
         return recursiveValueBuilder_;
       }
+
+      private net.badata.protobuf.converter.proto.ConverterProto.WrapperTest wrapperTest_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          net.badata.protobuf.converter.proto.ConverterProto.WrapperTest, net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.Builder, net.badata.protobuf.converter.proto.ConverterProto.WrapperTestOrBuilder> wrapperTestBuilder_;
+      /**
+       * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+       */
+      public boolean hasWrapperTest() {
+        return wrapperTestBuilder_ != null || wrapperTest_ != null;
+      }
+      /**
+       * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+       */
+      public net.badata.protobuf.converter.proto.ConverterProto.WrapperTest getWrapperTest() {
+        if (wrapperTestBuilder_ == null) {
+          return wrapperTest_ == null ? net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.getDefaultInstance() : wrapperTest_;
+        } else {
+          return wrapperTestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+       */
+      public Builder setWrapperTest(net.badata.protobuf.converter.proto.ConverterProto.WrapperTest value) {
+        if (wrapperTestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          wrapperTest_ = value;
+          onChanged();
+        } else {
+          wrapperTestBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+       */
+      public Builder setWrapperTest(
+          net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.Builder builderForValue) {
+        if (wrapperTestBuilder_ == null) {
+          wrapperTest_ = builderForValue.build();
+          onChanged();
+        } else {
+          wrapperTestBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+       */
+      public Builder mergeWrapperTest(net.badata.protobuf.converter.proto.ConverterProto.WrapperTest value) {
+        if (wrapperTestBuilder_ == null) {
+          if (wrapperTest_ != null) {
+            wrapperTest_ =
+              net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.newBuilder(wrapperTest_).mergeFrom(value).buildPartial();
+          } else {
+            wrapperTest_ = value;
+          }
+          onChanged();
+        } else {
+          wrapperTestBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+       */
+      public Builder clearWrapperTest() {
+        if (wrapperTestBuilder_ == null) {
+          wrapperTest_ = null;
+          onChanged();
+        } else {
+          wrapperTest_ = null;
+          wrapperTestBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+       */
+      public net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.Builder getWrapperTestBuilder() {
+        
+        onChanged();
+        return getWrapperTestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+       */
+      public net.badata.protobuf.converter.proto.ConverterProto.WrapperTestOrBuilder getWrapperTestOrBuilder() {
+        if (wrapperTestBuilder_ != null) {
+          return wrapperTestBuilder_.getMessageOrBuilder();
+        } else {
+          return wrapperTest_ == null ?
+              net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.getDefaultInstance() : wrapperTest_;
+        }
+      }
+      /**
+       * <code>.net.badata.protobuf.converter.proto.WrapperTest wrapperTest = 16;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          net.badata.protobuf.converter.proto.ConverterProto.WrapperTest, net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.Builder, net.badata.protobuf.converter.proto.ConverterProto.WrapperTestOrBuilder> 
+          getWrapperTestFieldBuilder() {
+        if (wrapperTestBuilder_ == null) {
+          wrapperTestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              net.badata.protobuf.converter.proto.ConverterProto.WrapperTest, net.badata.protobuf.converter.proto.ConverterProto.WrapperTest.Builder, net.badata.protobuf.converter.proto.ConverterProto.WrapperTestOrBuilder>(
+                  getWrapperTest(),
+                  getParentForChildren(),
+                  isClean());
+          wrapperTest_ = null;
+        }
+        return wrapperTestBuilder_;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -5326,6 +6981,7 @@ public final class ConverterProto {
 
     private static final com.google.protobuf.Parser<ConverterTest>
         PARSER = new com.google.protobuf.AbstractParser<ConverterTest>() {
+      @java.lang.Override
       public ConverterTest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5343,6 +6999,7 @@ public final class ConverterProto {
       return PARSER;
     }
 
+    @java.lang.Override
     public net.badata.protobuf.converter.proto.ConverterProto.ConverterTest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -5354,6 +7011,11 @@ public final class ConverterProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_net_badata_protobuf_converter_proto_PrimitiveTest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_net_badata_protobuf_converter_proto_WrapperTest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_net_badata_protobuf_converter_proto_WrapperTest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_net_badata_protobuf_converter_proto_FieldConverterTest_descriptor;
   private static final 
@@ -5379,36 +7041,46 @@ public final class ConverterProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\024converter_test.proto\022#net.badata.proto" +
-      "buf.converter.proto\"s\n\rPrimitiveTest\022\020\n\010" +
-      "intValue\030\001 \001(\005\022\021\n\tlongValue\030\002 \001(\003\022\022\n\nflo" +
-      "atValue\030\003 \001(\002\022\023\n\013doubleValue\030\004 \001(\001\022\024\n\014bo" +
-      "oleanValue\030\005 \001(\010\"R\n\022FieldConverterTest\022\022" +
-      "\n\nenumString\030\001 \001(\t\022\020\n\010dateLong\030\002 \001(\003\022\026\n\016" +
-      "stringSetValue\030\003 \003(\t\"\224\001\n\017NullDefaultTest" +
-      "\022\022\n\nnullString\030\001 \001(\t\022\036\n\026customInspection" +
-      "String\030\002 \001(\t\022M\n\021defaultPrimitives\030\003 \001(\0132" +
-      "2.net.badata.protobuf.converter.proto.Pr" +
-      "imitiveTest\"\353\005\n\rConverterTest\022\020\n\010intValu" +
-      "e\030\001 \001(\005\022\021\n\tlongValue\030\002 \001(\003\022\022\n\nfloatValue" +
-      "\030\003 \001(\002\022\023\n\013doubleValue\030\004 \001(\001\022\024\n\014booleanVa" +
-      "lue\030\005 \001(\010\022\023\n\013stringValue\030\006 \001(\t\022J\n\016primit" +
-      "iveValue\030\007 \001(\01322.net.badata.protobuf.con" +
-      "verter.proto.PrimitiveTest\022U\n\024fieldConve" +
-      "rsionValue\030\010 \001(\01327.net.badata.protobuf.c" +
-      "onverter.proto.FieldConverterTest\022N\n\020nul" +
-      "lDefaultValue\030\t \001(\01324.net.badata.protobu" +
-      "f.converter.proto.NullDefaultTest\022\027\n\017str" +
-      "ingListValue\030\n \003(\t\022L\n\020complexListValue\030\013" +
-      " \003(\01322.net.badata.protobuf.converter.pro" +
-      "to.PrimitiveTest\022K\n\017complexSetValue\030\014 \003(" +
-      "\01322.net.badata.protobuf.converter.proto." +
-      "PrimitiveTest\022Z\n\036complexNullableCollecti" +
-      "onValue\030\r \003(\01322.net.badata.protobuf.conv" +
-      "erter.proto.PrimitiveTest\022\022\n\nbytesValue\030" +
-      "\016 \001(\014\022J\n\016recursiveValue\030\017 \001(\01322.net.bada" +
-      "ta.protobuf.converter.proto.ConverterTes" +
-      "tB5\n#net.badata.protobuf.converter.proto" +
-      "B\016ConverterProtob\006proto3"
+      "buf.converter.proto\032\036google/protobuf/wra" +
+      "ppers.proto\"s\n\rPrimitiveTest\022\020\n\010intValue" +
+      "\030\001 \001(\005\022\021\n\tlongValue\030\002 \001(\003\022\022\n\nfloatValue\030" +
+      "\003 \001(\002\022\023\n\013doubleValue\030\004 \001(\001\022\024\n\014booleanVal" +
+      "ue\030\005 \001(\010\"\245\002\n\013WrapperTest\0224\n\017intWrapperVa" +
+      "lue\030\001 \001(\0132\033.google.protobuf.Int32Value\0225" +
+      "\n\020longWrapperValue\030\002 \001(\0132\033.google.protob" +
+      "uf.Int64Value\0226\n\021floatWrapperValue\030\003 \001(\013" +
+      "2\033.google.protobuf.FloatValue\0228\n\022doubleW" +
+      "rapperValue\030\004 \001(\0132\034.google.protobuf.Doub" +
+      "leValue\0227\n\023booleanWrapperValue\030\005 \001(\0132\032.g" +
+      "oogle.protobuf.BoolValue\"R\n\022FieldConvert" +
+      "erTest\022\022\n\nenumString\030\001 \001(\t\022\020\n\010dateLong\030\002" +
+      " \001(\003\022\026\n\016stringSetValue\030\003 \003(\t\"\224\001\n\017NullDef" +
+      "aultTest\022\022\n\nnullString\030\001 \001(\t\022\036\n\026customIn" +
+      "spectionString\030\002 \001(\t\022M\n\021defaultPrimitive" +
+      "s\030\003 \001(\01322.net.badata.protobuf.converter." +
+      "proto.PrimitiveTest\"\262\006\n\rConverterTest\022\020\n" +
+      "\010intValue\030\001 \001(\005\022\021\n\tlongValue\030\002 \001(\003\022\022\n\nfl" +
+      "oatValue\030\003 \001(\002\022\023\n\013doubleValue\030\004 \001(\001\022\024\n\014b" +
+      "ooleanValue\030\005 \001(\010\022\023\n\013stringValue\030\006 \001(\t\022J" +
+      "\n\016primitiveValue\030\007 \001(\01322.net.badata.prot" +
+      "obuf.converter.proto.PrimitiveTest\022U\n\024fi" +
+      "eldConversionValue\030\010 \001(\01327.net.badata.pr" +
+      "otobuf.converter.proto.FieldConverterTes" +
+      "t\022N\n\020nullDefaultValue\030\t \001(\01324.net.badata" +
+      ".protobuf.converter.proto.NullDefaultTes" +
+      "t\022\027\n\017stringListValue\030\n \003(\t\022L\n\020complexLis" +
+      "tValue\030\013 \003(\01322.net.badata.protobuf.conve" +
+      "rter.proto.PrimitiveTest\022K\n\017complexSetVa" +
+      "lue\030\014 \003(\01322.net.badata.protobuf.converte" +
+      "r.proto.PrimitiveTest\022Z\n\036complexNullable" +
+      "CollectionValue\030\r \003(\01322.net.badata.proto" +
+      "buf.converter.proto.PrimitiveTest\022\022\n\nbyt" +
+      "esValue\030\016 \001(\014\022J\n\016recursiveValue\030\017 \001(\01322." +
+      "net.badata.protobuf.converter.proto.Conv" +
+      "erterTest\022E\n\013wrapperTest\030\020 \001(\01320.net.bad" +
+      "ata.protobuf.converter.proto.WrapperTest" +
+      "B5\n#net.badata.protobuf.converter.protoB" +
+      "\016ConverterProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5421,6 +7093,7 @@ public final class ConverterProto {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.WrappersProto.getDescriptor(),
         }, assigner);
     internal_static_net_badata_protobuf_converter_proto_PrimitiveTest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -5428,24 +7101,31 @@ public final class ConverterProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_badata_protobuf_converter_proto_PrimitiveTest_descriptor,
         new java.lang.String[] { "IntValue", "LongValue", "FloatValue", "DoubleValue", "BooleanValue", });
-    internal_static_net_badata_protobuf_converter_proto_FieldConverterTest_descriptor =
+    internal_static_net_badata_protobuf_converter_proto_WrapperTest_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_net_badata_protobuf_converter_proto_WrapperTest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_net_badata_protobuf_converter_proto_WrapperTest_descriptor,
+        new java.lang.String[] { "IntWrapperValue", "LongWrapperValue", "FloatWrapperValue", "DoubleWrapperValue", "BooleanWrapperValue", });
+    internal_static_net_badata_protobuf_converter_proto_FieldConverterTest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_net_badata_protobuf_converter_proto_FieldConverterTest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_badata_protobuf_converter_proto_FieldConverterTest_descriptor,
         new java.lang.String[] { "EnumString", "DateLong", "StringSetValue", });
     internal_static_net_badata_protobuf_converter_proto_NullDefaultTest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_net_badata_protobuf_converter_proto_NullDefaultTest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_badata_protobuf_converter_proto_NullDefaultTest_descriptor,
         new java.lang.String[] { "NullString", "CustomInspectionString", "DefaultPrimitives", });
     internal_static_net_badata_protobuf_converter_proto_ConverterTest_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_net_badata_protobuf_converter_proto_ConverterTest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_badata_protobuf_converter_proto_ConverterTest_descriptor,
-        new java.lang.String[] { "IntValue", "LongValue", "FloatValue", "DoubleValue", "BooleanValue", "StringValue", "PrimitiveValue", "FieldConversionValue", "NullDefaultValue", "StringListValue", "ComplexListValue", "ComplexSetValue", "ComplexNullableCollectionValue", "BytesValue", "RecursiveValue", });
+        new java.lang.String[] { "IntValue", "LongValue", "FloatValue", "DoubleValue", "BooleanValue", "StringValue", "PrimitiveValue", "FieldConversionValue", "NullDefaultValue", "StringListValue", "ComplexListValue", "ComplexSetValue", "ComplexNullableCollectionValue", "BytesValue", "RecursiveValue", "WrapperTest", });
+    com.google.protobuf.WrappersProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

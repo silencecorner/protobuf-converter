@@ -1,5 +1,6 @@
 package net.badata.protobuf.converter;
 
+import com.google.common.primitives.Primitives;
 import net.badata.protobuf.converter.domain.ResolverDomain;
 import net.badata.protobuf.converter.proto.ResolverProto;
 import org.junit.Assert;
@@ -59,5 +60,9 @@ public class ResolverTest {
 		Assert.assertEquals(testProtobuf.getStringListValueList(),
 				Arrays.asList(result.getCommaDelimitedStringValue().split(",")));
 		Assert.assertEquals(testProtobuf.getDelimitedStringValue(), String.join(",", result.getStringList()));
+	}
+	@Test
+	public void test(){
+		Assert.assertTrue(Long.class.isAssignableFrom(Primitives.wrap(long.class)));
 	}
 }

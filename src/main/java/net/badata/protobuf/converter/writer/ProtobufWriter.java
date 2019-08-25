@@ -1,11 +1,11 @@
 package net.badata.protobuf.converter.writer;
 
+import com.google.common.primitives.Primitives;
 import com.google.protobuf.Message;
 import net.badata.protobuf.converter.exception.WriteException;
 import net.badata.protobuf.converter.resolver.FieldResolver;
 import net.badata.protobuf.converter.type.TypeConverter;
 import net.badata.protobuf.converter.utils.FieldUtils;
-import net.badata.protobuf.converter.utils.Primitives;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;

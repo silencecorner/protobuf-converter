@@ -274,6 +274,9 @@ public final class Converter {
 		Mapper fieldMapper = AnnotationUtils.createMapper(protoClassAnnotation);
 		FieldResolverFactory fieldFactory = AnnotationUtils.createFieldFactory(protoClassAnnotation);
 		for (Field field : getDomainFields(domainClass)) {
+			if (field.getName().equals("wrapperTest")){
+				System.out.printf("hahah");
+			}
 			if (configuration.getIgnoredFields().ignored(field)) {
 				continue;
 			}
@@ -284,6 +287,9 @@ public final class Converter {
 
 	private void fillProtobufField(final FieldResolver fieldResolver, final MappingResult mappingResult)
 			throws WriteException {
+		if (mappingResult == null){
+			return;
+		}
 		ProtobufWriter fieldWriter = new ProtobufWriter((Message.Builder) mappingResult.getDestination());
 		Object mappedValue = mappingResult.getValue();
 		switch (mappingResult.getCode()) {

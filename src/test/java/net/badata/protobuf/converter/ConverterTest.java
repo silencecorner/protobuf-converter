@@ -1,6 +1,6 @@
 package net.badata.protobuf.converter;
 
-import com.google.protobuf.ByteString;
+import com.google.protobuf.*;
 import net.badata.protobuf.converter.domain.ConverterDomain;
 import net.badata.protobuf.converter.proto.ConverterProto;
 import org.junit.Assert;
@@ -40,6 +40,13 @@ public class ConverterTest {
 				.setIntValue(1)
 				.setLongValue(2L)
 				.setStringValue("3")
+				.setWrapperTest(ConverterProto.WrapperTest.newBuilder()
+						.setBooleanWrapperValue(BoolValue.of(true))
+						.setIntWrapperValue(Int32Value.of(1))
+						.setLongWrapperValue(Int64Value.of(2L))
+						.setFloatWrapperValue(FloatValue.of(0.02F))
+						.setDoubleWrapperValue(DoubleValue.of(0.03))
+						.build())
 				.setPrimitiveValue(ConverterProto.PrimitiveTest.newBuilder()
 						.setBooleanValue(true)
 						.setFloatValue(-0.1f)
@@ -70,6 +77,14 @@ public class ConverterTest {
 		primitiveTest.setIntValue(-101);
 		primitiveTest.setLongValue(-102L);
 
+		ConverterDomain.WrapperTest wrapperTest = new ConverterDomain.WrapperTest();
+		wrapperTest.setBooleanWrapperValue(true);
+		wrapperTest.setFloatWrapperValue(-0.2f);
+		wrapperTest.setDoubleWrapperValue(-0.6);
+		wrapperTest.setIntWrapperValue(-101);
+		wrapperTest.setLongWrapperValue(-102L);
+
+
 		ConverterDomain.FieldConverterTest fieldConverterTest = new ConverterDomain.FieldConverterTest();
 		fieldConverterTest.setEnumString(TestEnum.TWO);
 		fieldConverterTest.setDateLong(new Date());
@@ -85,6 +100,7 @@ public class ConverterTest {
 		testDomain.setLongValue(102L);
 		testDomain.setStringValue("103");
 		testDomain.setPrimitiveValue(primitiveTest);
+		testDomain.setWrapperTest(wrapperTest);
 		testDomain.setFieldConversionValue(fieldConverterTest);
 		testDomain.setSimpleListValue(Arrays.asList("110"));
 
@@ -116,7 +132,6 @@ public class ConverterTest {
 		ConverterDomain.Test result = Converter.create().toDomain(ConverterDomain.Test.class, testProtobuf);
 
 		Assert.assertNotNull(result);
-
 		Assert.assertEquals(testProtobuf.getBooleanValue(), result.getBoolValue());
 		Assert.assertEquals((Object) testProtobuf.getFloatValue(), result.getFloatValue());
 		Assert.assertEquals((Object) testProtobuf.getDoubleValue(), result.getDoubleValue());
@@ -159,6 +174,7 @@ public class ConverterTest {
 
 		Assert.assertEquals(testProtobuf.getBytesValue(), result.getBytesValue());
 		Assert.assertEquals((Object) testProtobuf.getRecursiveValue().getIntValue(), result.getRecursiveValue().getIntValue());
+		Assert.assertNotNull(result.getWrapperTest());
 	}
 
 	@Test
@@ -216,6 +232,7 @@ public class ConverterTest {
 
 		Assert.assertTrue(result.getComplexNullableCollectionValueList().isEmpty());
 		Assert.assertEquals((Object) testDomain.getRecursiveValue().getIntValue(), result.getRecursiveValue().getIntValue());
+		Assert.assertTrue(result.getWrapperTest().hasBooleanWrapperValue());
 	}
 
 	@Test

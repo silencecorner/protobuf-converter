@@ -45,6 +45,9 @@ public class ConverterDomain {
 		private String stringValue;
 		@ProtoField
 		private PrimitiveTest primitiveValue;
+		// 不指定annotation
+		@ProtoField
+		private WrapperTest wrapperTest;
 		@ProtoField
 		private FieldConverterTest fieldConversionValue;
 		@ProtoField
@@ -183,6 +186,14 @@ public class ConverterDomain {
 		public void setRecursiveValue(Test recursiveValue) {
 			this.recursiveValue = recursiveValue;
 		}
+
+		public WrapperTest getWrapperTest() {
+			return wrapperTest;
+		}
+
+		public void setWrapperTest(WrapperTest wrapperTest) {
+			this.wrapperTest = wrapperTest;
+		}
 	}
 
 	@ProtoClass(ConverterProto.PrimitiveTest.class)
@@ -239,6 +250,63 @@ public class ConverterDomain {
 			this.booleanValue = booleanValue;
 		}
 	}
+
+	@ProtoClass(ConverterProto.WrapperTest.class)
+	public static class WrapperTest {
+
+		@ProtoField
+		private long longWrapperValue;
+		@ProtoField
+		private int intWrapperValue;
+		@ProtoField
+		private float floatWrapperValue;
+		@ProtoField
+		private double doubleWrapperValue;
+		@ProtoField
+		private boolean booleanWrapperValue;
+
+		public long getLongWrapperValue() {
+			return longWrapperValue;
+		}
+
+		public void setLongWrapperValue(long longWrapperValue) {
+			this.longWrapperValue = longWrapperValue;
+		}
+
+		public int getIntWrapperValue() {
+			return intWrapperValue;
+		}
+
+		public void setIntWrapperValue(int intWrapperValue) {
+			this.intWrapperValue = intWrapperValue;
+		}
+
+		public float getFloatWrapperValue() {
+			return floatWrapperValue;
+		}
+
+		public void setFloatWrapperValue(float floatWrapperValue) {
+			this.floatWrapperValue = floatWrapperValue;
+		}
+
+		public double getDoubleWrapperValue() {
+			return doubleWrapperValue;
+		}
+
+		public void setDoubleWrapperValue(double doubleWrapperValue) {
+			this.doubleWrapperValue = doubleWrapperValue;
+		}
+
+		public boolean isBooleanWrapperValue() {
+			return booleanWrapperValue;
+		}
+
+		public void setBooleanWrapperValue(boolean booleanWrapperValue) {
+			this.booleanWrapperValue = booleanWrapperValue;
+		}
+	}
+
+
 
 	@ProtoClass(ConverterProto.FieldConverterTest.class)
 	public static class FieldConverterTest {

@@ -16,6 +16,9 @@ import java.lang.reflect.Field;
  * @author Roman Gushel
  */
 public class DefaultFieldResolverImpl implements FieldResolver {
+	private static final DefaultConverterImpl defaultConverter = new DefaultConverterImpl();
+	private static final DefaultNullValueInspectorImpl defaultNullValueInspector = new DefaultNullValueInspectorImpl();
+	private static final SimpleDefaultValueImpl simpleDefaultValue = new SimpleDefaultValueImpl();
 
 	private final Field field;
 	private String domainName;
@@ -38,9 +41,9 @@ public class DefaultFieldResolverImpl implements FieldResolver {
 		this.protobufName = field.getName();
 		this.domainType = field.getType();
 		this.protobufType = field.getType();
-		this.converter = new DefaultConverterImpl();
-		this.nullValueInspector = new DefaultNullValueInspectorImpl();
-		this.defaultValue = new SimpleDefaultValueImpl();
+		this.converter = defaultConverter;
+		this.nullValueInspector = defaultNullValueInspector;
+		this.defaultValue = simpleDefaultValue;
 	}
 
 	/**
@@ -83,6 +86,11 @@ public class DefaultFieldResolverImpl implements FieldResolver {
 	@Override
 	public TypeConverter<?, ?> getTypeConverter() {
 		return converter;
+	}
+
+	@Override
+	public void setTypeConverter(TypeConverter<?, ?> typeConverter) {
+		this.converter = typeConverter;
 	}
 
 	/**
