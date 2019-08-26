@@ -266,17 +266,6 @@ public class ConverterDomain {
 		@ProtoField
 		private Boolean booleanWrapperValue;
 
-		@ProtoField
-		private Boolean isBoolWrapperValue;
-
-		public Boolean getBoolWrapperValue() {
-			return isBoolWrapperValue;
-		}
-
-		public void setBoolWrapperValue(Boolean boolWrapperValue) {
-			isBoolWrapperValue = boolWrapperValue;
-		}
-
 		public Long getLongWrapperValue() {
 			return longWrapperValue;
 		}

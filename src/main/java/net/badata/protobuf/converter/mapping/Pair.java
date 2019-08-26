@@ -3,7 +3,6 @@ package net.badata.protobuf.converter.mapping;
 import java.io.Serializable;
 /**
  * <p>A convenience class to represent name-value pairs.</p>
- * @since JavaFX 2.0
  */
 public class Pair<K,V> implements Serializable{
 
@@ -89,10 +88,10 @@ public class Pair<K,V> implements Serializable{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o instanceof javafx.util.Pair) {
-            javafx.util.Pair pair = (javafx.util.Pair) o;
-            if (key != null ? !key.equals(pair.getKey()) : pair.getKey() != null) return false;
-            if (value != null ? !value.equals(pair.getValue()) : pair.getValue() != null) return false;
+        if (o instanceof Pair) {
+            Pair pair = (Pair) o;
+            if (key != null ? !key.equals(pair.key) : pair.key != null) return false;
+            if (value != null ? !value.equals(pair.value) : pair.value != null) return false;
             return true;
         }
         return false;
