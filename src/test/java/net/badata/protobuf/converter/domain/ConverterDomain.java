@@ -1,6 +1,7 @@
 package net.badata.protobuf.converter.domain;
 
 import com.google.protobuf.ByteString;
+import com.google.protobuf.DoubleValue;
 import com.google.protobuf.Message;
 import net.badata.protobuf.converter.Configuration;
 import net.badata.protobuf.converter.annotation.ProtoClass;
@@ -255,55 +256,67 @@ public class ConverterDomain {
 	public static class WrapperTest {
 
 		@ProtoField
-		private long longWrapperValue;
+		private Long longWrapperValue;
 		@ProtoField
-		private int intWrapperValue;
+		private Integer intWrapperValue;
 		@ProtoField
-		private float floatWrapperValue;
+		private Float floatWrapperValue;
 		@ProtoField
-		private double doubleWrapperValue;
+		private Double doubleWrapperValue;
 		@ProtoField
-		private boolean booleanWrapperValue;
+		private Boolean booleanWrapperValue;
 
-		public long getLongWrapperValue() {
+		@ProtoField
+		private Boolean isBoolWrapperValue;
+
+		public Boolean getBoolWrapperValue() {
+			return isBoolWrapperValue;
+		}
+
+		public void setBoolWrapperValue(Boolean boolWrapperValue) {
+			isBoolWrapperValue = boolWrapperValue;
+		}
+
+		public Long getLongWrapperValue() {
 			return longWrapperValue;
 		}
 
-		public void setLongWrapperValue(long longWrapperValue) {
+		public void setLongWrapperValue(Long longWrapperValue) {
 			this.longWrapperValue = longWrapperValue;
 		}
 
-		public int getIntWrapperValue() {
+		public Integer getIntWrapperValue() {
 			return intWrapperValue;
 		}
 
-		public void setIntWrapperValue(int intWrapperValue) {
+		public void setIntWrapperValue(Integer intWrapperValue) {
 			this.intWrapperValue = intWrapperValue;
 		}
 
-		public float getFloatWrapperValue() {
+		public Float getFloatWrapperValue() {
 			return floatWrapperValue;
 		}
 
-		public void setFloatWrapperValue(float floatWrapperValue) {
+		public void setFloatWrapperValue(Float floatWrapperValue) {
 			this.floatWrapperValue = floatWrapperValue;
 		}
 
-		public double getDoubleWrapperValue() {
+		public Double getDoubleWrapperValue() {
 			return doubleWrapperValue;
 		}
 
-		public void setDoubleWrapperValue(double doubleWrapperValue) {
+		public void setDoubleWrapperValue(Double doubleWrapperValue) {
 			this.doubleWrapperValue = doubleWrapperValue;
 		}
 
-		public boolean isBooleanWrapperValue() {
+		public Boolean getBooleanWrapperValue() {
 			return booleanWrapperValue;
 		}
 
-		public void setBooleanWrapperValue(boolean booleanWrapperValue) {
+		public void setBooleanWrapperValue(Boolean booleanWrapperValue) {
 			this.booleanWrapperValue = booleanWrapperValue;
 		}
+
 	}
 
 

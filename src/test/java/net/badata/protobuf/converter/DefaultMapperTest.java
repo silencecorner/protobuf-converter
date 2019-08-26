@@ -247,10 +247,26 @@ public class DefaultMapperTest {
 		}
 	}
 
+	private FieldResolver findBoolMappingFalseTestField(final String fieldName) {
+		try {
+			return fieldResolverFactory.createResolver(Configuration.builder().build(),MappingDomain.BoolMappingFalseTest.class.getDeclaredField
+					(fieldName));
+		} catch (NoSuchFieldException e) {
+			throw new IllegalArgumentException("No such field: " + fieldName, e);
+		}
+	}
+
 	@Test
 	public void testProtectedDomainGetter() throws MappingException {
 		exception.expect(MappingException.class);
 		mapper.mapToProtobufField(findInaccessibleField("protectedGetterField"), inaccessibleTestDomain,
 				MappingProto.InaccessibleTest.newBuilder());
+	}
+
+	@Test
+	public void testCannotGetIsBoolGetter() throws MappingException {
+		exception.expect(MappingException.class);
+		mapper.mapToProtobufField(findBoolMappingFalseTestField("isBoolWrapperValue"), new MappingDomain.BoolMappingFalseTest(),
+				MappingProto.BoolMappingFalseTest.newBuilder());
 	}
 }

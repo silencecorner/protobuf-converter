@@ -214,6 +214,15 @@ public class ConverterTest {
 		Assert.assertEquals(primitiveDomain.getDoubleValue(), primitiveProto.getDoubleValue(), 0);
 		Assert.assertEquals(primitiveDomain.isBooleanValue(), primitiveProto.getBooleanValue());
 
+		ConverterProto.WrapperTest wrapperTestProto = result.getWrapperTest();
+		ConverterDomain.WrapperTest wrapperTestDomain = testDomain.getWrapperTest();
+
+		Assert.assertEquals(wrapperTestDomain.getLongWrapperValue(), wrapperTestProto.getLongWrapperValue().getValue(),0L);
+		Assert.assertEquals(wrapperTestDomain.getIntWrapperValue(), wrapperTestProto.getIntWrapperValue().getValue(),0);
+		Assert.assertEquals(wrapperTestDomain.getFloatWrapperValue(), wrapperTestProto.getFloatWrapperValue().getValue(),0.0F);
+		Assert.assertEquals(wrapperTestDomain.getDoubleWrapperValue(), wrapperTestProto.getDoubleWrapperValue().getValue(),0.0);
+		Assert.assertEquals(wrapperTestDomain.getBooleanWrapperValue(), wrapperTestProto.getBooleanWrapperValue().getValue());
+
 		ConverterProto.FieldConverterTest conversionProto = result.getFieldConversionValue();
 		ConverterDomain.FieldConverterTest conversionDomain = testDomain.getFieldConversionValue();
 
@@ -231,7 +240,6 @@ public class ConverterTest {
 
 		Assert.assertTrue(result.getComplexNullableCollectionValueList().isEmpty());
 		Assert.assertEquals((Object) testDomain.getRecursiveValue().getIntValue(), result.getRecursiveValue().getIntValue());
-		Assert.assertTrue(result.getWrapperTest().hasBooleanWrapperValue());
 	}
 
 	@Test

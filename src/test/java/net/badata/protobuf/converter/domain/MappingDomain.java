@@ -192,4 +192,17 @@ public class MappingDomain {
 		}
 	}
 
+	@ProtoClass(MappingProto.BoolMappingFalseTest.class)
+	public static class BoolMappingFalseTest {
+		private Boolean isBoolWrapperValue;
+
+		public Boolean getBoolWrapperValue() {
+			return isBoolWrapperValue;
+		}
+
+		public void setBoolWrapperValue(Boolean boolWrapperValue) {
+			isBoolWrapperValue = boolWrapperValue;
+		}
+	}
+
 }

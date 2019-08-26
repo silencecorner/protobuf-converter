@@ -82,6 +82,33 @@ FieldsIgnore ignoredFiedls = new FieldsIgnore().add(String.class);
 Configuration configuration = Configuration.builder().addIgnoredFields(ignoredFiedls).build();
 ProtobufUser userProto = Converter.create(configuration).toProtobuf(ProtobufUser.class, userDomain);
 ```
+### 新功能
+- @ProtoField 可不填
+- lambda添加ignore字段
+- @ProtoField 单独设置proto的命名策略，这里跟java的定义有关系，通过fieldName去查找proto的字段是否存在，默认java跟proto一样的都是驼峰，例如：
+> - java `fieldName` proto `fieldName` 匹配 
+>  - java `fieldName` proto `field_name` @ProtoField(namingStrategy=UNDERSCORE_SEPARATED_CASE) 匹配 其他都不匹配，java里面非驼峰不能使用，因为proto生成java代码会变成驼峰
+- java存在proto字段不存在时不抛异常
+- 内置常见转换，具体请查看[转换关系](https://github.com/silencecorner/protobuf-converter/tree/master/src/main/java/net/badata/protobuf/converter/type)
+```
+public static ConcurrentMap<Pair<?, ?>, TypeConverter> TYPE_CONVERTER_CACHE = new ConcurrentHashMap<Pair<?, ?>, TypeConverter>() {{
+    put(new Pair<>(Date.class, Long.class), new DateLongConverterImpl());
+    put(new Pair<>(Enum.class, String.class), new EnumStringConverter());
+    put(new Pair<>(LocalDateTime.class, Timestamp.class), new LocalDateTimeConverterImpl());
+    put(new Pair<>(Set.class, List.class), new SetListConverterImpl());
+    put(new Pair<>(Boolean.class, BoolValue.class), new BooleanBoolValueConverterImpl());
+    put(new Pair<>(Double.class, DoubleValue.class), new DoubleDoubleValueConverterImpl());
+    put(new Pair<>(Float.class, FloatValue.class), new FloatFloatValueConverterImpl());
+    put(new Pair<>(Integer.class, Int32Value.class), new IntegerInt32ValueConverterImpl());
+    put(new Pair<>(Integer.class, UInt32Value.class), new IntegerUInt32ValueConverterImpl());
+    put(new Pair<>(Long.class, Int64Value.class), new LongInt64ValueConverterImpl());
+    put(new Pair<>(Long.class, UInt64Value.class), new LongUInt64ValueConverterImpl());
+    put(new Pair<>(String.class, StringValue.class), new StringStringValueConverterImpl());
+}};
+```
+### 注意事项
+java的`Boolean`字段不要以`is`开头，无法找到get方法，[测试代码]()
+
 ### Obfuscation
 Main Proguard options:
 ```
@@ -132,7 +159,6 @@ Start client:
 ```
 java -jar example.jar
 ```
-
 
 # License
 

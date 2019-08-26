@@ -4,7 +4,7 @@ package net.badata.protobuf.converter.proto;
 
 option java_package = "net.badata.protobuf.converter.proto";
 option java_outer_classname = "MappingProto";
-
+import "google/protobuf/wrappers.proto";
 
 message NestedTest {
     string stringValue = 1;
@@ -27,6 +27,12 @@ message InaccessibleTest {
 	string inaccessibleField = 1;
 	string protectedGetterField = 2;
 }
+
+
+message BoolMappingFalseTest {
+	google.protobuf.BoolValue isBoolWrapperValue = 6;
+}
+
 
 
 

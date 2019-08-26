@@ -2869,6 +2869,612 @@ public final class MappingProto {
 
   }
 
+  public interface BoolMappingFalseTestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:net.badata.protobuf.converter.proto.BoolMappingFalseTest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+     */
+    boolean hasIsBoolWrapperValue();
+    /**
+     * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+     */
+    com.google.protobuf.BoolValue getIsBoolWrapperValue();
+    /**
+     * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+     */
+    com.google.protobuf.BoolValueOrBuilder getIsBoolWrapperValueOrBuilder();
+  }
+  /**
+   * Protobuf type {@code net.badata.protobuf.converter.proto.BoolMappingFalseTest}
+   */
+  public  static final class BoolMappingFalseTest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:net.badata.protobuf.converter.proto.BoolMappingFalseTest)
+      BoolMappingFalseTestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BoolMappingFalseTest.newBuilder() to construct.
+    private BoolMappingFalseTest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BoolMappingFalseTest() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BoolMappingFalseTest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 50: {
+              com.google.protobuf.BoolValue.Builder subBuilder = null;
+              if (isBoolWrapperValue_ != null) {
+                subBuilder = isBoolWrapperValue_.toBuilder();
+              }
+              isBoolWrapperValue_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(isBoolWrapperValue_);
+                isBoolWrapperValue_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_BoolMappingFalseTest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_BoolMappingFalseTest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest.class, net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest.Builder.class);
+    }
+
+    public static final int ISBOOLWRAPPERVALUE_FIELD_NUMBER = 6;
+    private com.google.protobuf.BoolValue isBoolWrapperValue_;
+    /**
+     * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+     */
+    public boolean hasIsBoolWrapperValue() {
+      return isBoolWrapperValue_ != null;
+    }
+    /**
+     * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+     */
+    public com.google.protobuf.BoolValue getIsBoolWrapperValue() {
+      return isBoolWrapperValue_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : isBoolWrapperValue_;
+    }
+    /**
+     * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+     */
+    public com.google.protobuf.BoolValueOrBuilder getIsBoolWrapperValueOrBuilder() {
+      return getIsBoolWrapperValue();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (isBoolWrapperValue_ != null) {
+        output.writeMessage(6, getIsBoolWrapperValue());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (isBoolWrapperValue_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getIsBoolWrapperValue());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest)) {
+        return super.equals(obj);
+      }
+      net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest other = (net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest) obj;
+
+      if (hasIsBoolWrapperValue() != other.hasIsBoolWrapperValue()) return false;
+      if (hasIsBoolWrapperValue()) {
+        if (!getIsBoolWrapperValue()
+            .equals(other.getIsBoolWrapperValue())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasIsBoolWrapperValue()) {
+        hash = (37 * hash) + ISBOOLWRAPPERVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getIsBoolWrapperValue().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code net.badata.protobuf.converter.proto.BoolMappingFalseTest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:net.badata.protobuf.converter.proto.BoolMappingFalseTest)
+        net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_BoolMappingFalseTest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_BoolMappingFalseTest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest.class, net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest.Builder.class);
+      }
+
+      // Construct using net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (isBoolWrapperValueBuilder_ == null) {
+          isBoolWrapperValue_ = null;
+        } else {
+          isBoolWrapperValue_ = null;
+          isBoolWrapperValueBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_BoolMappingFalseTest_descriptor;
+      }
+
+      @java.lang.Override
+      public net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest getDefaultInstanceForType() {
+        return net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest build() {
+        net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest buildPartial() {
+        net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest result = new net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest(this);
+        if (isBoolWrapperValueBuilder_ == null) {
+          result.isBoolWrapperValue_ = isBoolWrapperValue_;
+        } else {
+          result.isBoolWrapperValue_ = isBoolWrapperValueBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest) {
+          return mergeFrom((net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest other) {
+        if (other == net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest.getDefaultInstance()) return this;
+        if (other.hasIsBoolWrapperValue()) {
+          mergeIsBoolWrapperValue(other.getIsBoolWrapperValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.BoolValue isBoolWrapperValue_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> isBoolWrapperValueBuilder_;
+      /**
+       * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+       */
+      public boolean hasIsBoolWrapperValue() {
+        return isBoolWrapperValueBuilder_ != null || isBoolWrapperValue_ != null;
+      }
+      /**
+       * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+       */
+      public com.google.protobuf.BoolValue getIsBoolWrapperValue() {
+        if (isBoolWrapperValueBuilder_ == null) {
+          return isBoolWrapperValue_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : isBoolWrapperValue_;
+        } else {
+          return isBoolWrapperValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+       */
+      public Builder setIsBoolWrapperValue(com.google.protobuf.BoolValue value) {
+        if (isBoolWrapperValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          isBoolWrapperValue_ = value;
+          onChanged();
+        } else {
+          isBoolWrapperValueBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+       */
+      public Builder setIsBoolWrapperValue(
+          com.google.protobuf.BoolValue.Builder builderForValue) {
+        if (isBoolWrapperValueBuilder_ == null) {
+          isBoolWrapperValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          isBoolWrapperValueBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+       */
+      public Builder mergeIsBoolWrapperValue(com.google.protobuf.BoolValue value) {
+        if (isBoolWrapperValueBuilder_ == null) {
+          if (isBoolWrapperValue_ != null) {
+            isBoolWrapperValue_ =
+              com.google.protobuf.BoolValue.newBuilder(isBoolWrapperValue_).mergeFrom(value).buildPartial();
+          } else {
+            isBoolWrapperValue_ = value;
+          }
+          onChanged();
+        } else {
+          isBoolWrapperValueBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+       */
+      public Builder clearIsBoolWrapperValue() {
+        if (isBoolWrapperValueBuilder_ == null) {
+          isBoolWrapperValue_ = null;
+          onChanged();
+        } else {
+          isBoolWrapperValue_ = null;
+          isBoolWrapperValueBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+       */
+      public com.google.protobuf.BoolValue.Builder getIsBoolWrapperValueBuilder() {
+        
+        onChanged();
+        return getIsBoolWrapperValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+       */
+      public com.google.protobuf.BoolValueOrBuilder getIsBoolWrapperValueOrBuilder() {
+        if (isBoolWrapperValueBuilder_ != null) {
+          return isBoolWrapperValueBuilder_.getMessageOrBuilder();
+        } else {
+          return isBoolWrapperValue_ == null ?
+              com.google.protobuf.BoolValue.getDefaultInstance() : isBoolWrapperValue_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.BoolValue isBoolWrapperValue = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> 
+          getIsBoolWrapperValueFieldBuilder() {
+        if (isBoolWrapperValueBuilder_ == null) {
+          isBoolWrapperValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder>(
+                  getIsBoolWrapperValue(),
+                  getParentForChildren(),
+                  isClean());
+          isBoolWrapperValue_ = null;
+        }
+        return isBoolWrapperValueBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:net.badata.protobuf.converter.proto.BoolMappingFalseTest)
+    }
+
+    // @@protoc_insertion_point(class_scope:net.badata.protobuf.converter.proto.BoolMappingFalseTest)
+    private static final net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest();
+    }
+
+    public static net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<BoolMappingFalseTest>
+        PARSER = new com.google.protobuf.AbstractParser<BoolMappingFalseTest>() {
+      @java.lang.Override
+      public BoolMappingFalseTest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BoolMappingFalseTest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BoolMappingFalseTest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BoolMappingFalseTest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public net.badata.protobuf.converter.proto.MappingProto.BoolMappingFalseTest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_net_badata_protobuf_converter_proto_NestedTest_descriptor;
   private static final 
@@ -2884,6 +3490,11 @@ public final class MappingProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_net_badata_protobuf_converter_proto_InaccessibleTest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_net_badata_protobuf_converter_proto_BoolMappingFalseTest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_net_badata_protobuf_converter_proto_BoolMappingFalseTest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2894,19 +3505,22 @@ public final class MappingProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\022mapping_test.proto\022#net.badata.protobu" +
-      "f.converter.proto\"!\n\nNestedTest\022\023\n\013strin" +
-      "gValue\030\001 \001(\t\"\257\002\n\013MappingTest\022\020\n\010intValue" +
-      "\030\001 \001(\005\022\021\n\tlongValue\030\002 \001(\003\022\022\n\nfloatValue\030" +
-      "\003 \001(\002\022\023\n\013doubleValue\030\004 \001(\001\022\024\n\014booleanVal" +
-      "ue\030\005 \001(\010\022\023\n\013stringValue\030\006 \001(\t\022D\n\013nestedV" +
-      "alue\030\007 \001(\0132/.net.badata.protobuf.convert" +
-      "er.proto.NestedTest\022\027\n\017stringListValue\030\010" +
-      " \003(\t\022H\n\017nestedListValue\030\t \003(\0132/.net.bada" +
-      "ta.protobuf.converter.proto.NestedTest\"K" +
-      "\n\020InaccessibleTest\022\031\n\021inaccessibleField\030" +
-      "\001 \001(\t\022\034\n\024protectedGetterField\030\002 \001(\tB3\n#n" +
-      "et.badata.protobuf.converter.protoB\014Mapp" +
-      "ingProtob\006proto3"
+      "f.converter.proto\032\036google/protobuf/wrapp" +
+      "ers.proto\"!\n\nNestedTest\022\023\n\013stringValue\030\001" +
+      " \001(\t\"\257\002\n\013MappingTest\022\020\n\010intValue\030\001 \001(\005\022\021" +
+      "\n\tlongValue\030\002 \001(\003\022\022\n\nfloatValue\030\003 \001(\002\022\023\n" +
+      "\013doubleValue\030\004 \001(\001\022\024\n\014booleanValue\030\005 \001(\010" +
+      "\022\023\n\013stringValue\030\006 \001(\t\022D\n\013nestedValue\030\007 \001" +
+      "(\0132/.net.badata.protobuf.converter.proto" +
+      ".NestedTest\022\027\n\017stringListValue\030\010 \003(\t\022H\n\017" +
+      "nestedListValue\030\t \003(\0132/.net.badata.proto" +
+      "buf.converter.proto.NestedTest\"K\n\020Inacce" +
+      "ssibleTest\022\031\n\021inaccessibleField\030\001 \001(\t\022\034\n" +
+      "\024protectedGetterField\030\002 \001(\t\"N\n\024BoolMappi" +
+      "ngFalseTest\0226\n\022isBoolWrapperValue\030\006 \001(\0132" +
+      "\032.google.protobuf.BoolValueB3\n#net.badat" +
+      "a.protobuf.converter.protoB\014MappingProto" +
+      "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2919,6 +3533,7 @@ public final class MappingProto {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.WrappersProto.getDescriptor(),
         }, assigner);
     internal_static_net_badata_protobuf_converter_proto_NestedTest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2938,6 +3553,13 @@ public final class MappingProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_badata_protobuf_converter_proto_InaccessibleTest_descriptor,
         new java.lang.String[] { "InaccessibleField", "ProtectedGetterField", });
+    internal_static_net_badata_protobuf_converter_proto_BoolMappingFalseTest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_net_badata_protobuf_converter_proto_BoolMappingFalseTest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_net_badata_protobuf_converter_proto_BoolMappingFalseTest_descriptor,
+        new java.lang.String[] { "IsBoolWrapperValue", });
+    com.google.protobuf.WrappersProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
