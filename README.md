@@ -1,6 +1,6 @@
-[![Build Status](https://api.travis-ci.org/BAData/protobuf-converter.svg)](https://travis-ci.org/BAData/protobuf-converter)
-[![GitHub release](https://img.shields.io/github/release/BAData/protobuf-converter.svg)](https://github.com/BAData/protobuf-converter/releases)
-[![JitPack repository](https://jitpack.io/v/BAData/protobuf-converter.svg)](https://jitpack.io/#BAData/protobuf-converter)
+[![Build Status](https://api.travis-ci.org/silencecorner/protobuf-converter.svg)](https://travis-ci.org/silencecorner/protobuf-converter)
+[![GitHub release](https://img.shields.io/github/release/silencecorner/protobuf-converter.svg)](https://github.com/silencecorner/protobuf-converter/releases)
+[![JitPack repository](https://jitpack.io/v/silencecorner/protobuf-converter.svg)](https://jitpack.io/#silencecorner/protobuf-converter)
 # Protobuf converter
 **protobuf-converter** is library for transforming your Domain Model Objects into Google Protobuf Messages and vice versa.
 
