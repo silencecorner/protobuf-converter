@@ -3,7 +3,6 @@ package net.badata.protobuf.converter.mapping;
 import com.google.common.base.CaseFormat;
 import com.google.common.primitives.Primitives;
 import com.google.protobuf.*;
-import javafx.util.Pair;
 import net.badata.protobuf.converter.exception.MappingException;
 import net.badata.protobuf.converter.naming.NamingStrategy;
 import net.badata.protobuf.converter.resolver.FieldResolver;
