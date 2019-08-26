@@ -84,7 +84,7 @@ ProtobufUser userProto = Converter.create(configuration).toProtobuf(ProtobufUser
 ```
 ### 新功能
 - @ProtoField 可不填
-- lambda添加ignore字段
+- [lambda添加ignore字段](https://github.com/silencecorner/protobuf-converter/blob/master/src/test/java/net/badata/protobuf/converter/ConverterTest.java#L122-L126)
 - @ProtoField 单独设置proto的命名策略，这里跟java的定义有关系，通过fieldName去查找proto的字段是否存在，默认java跟proto一样的都是驼峰，例如：
 > - java `fieldName` proto `fieldName` 匹配 
 >  - java `fieldName` proto `field_name` @ProtoField(namingStrategy=UNDERSCORE_SEPARATED_CASE) 匹配 其他都不匹配，java里面非驼峰不能使用，因为proto生成java代码会变成驼峰
