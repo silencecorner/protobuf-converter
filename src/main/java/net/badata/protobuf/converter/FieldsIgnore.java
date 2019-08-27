@@ -26,6 +26,7 @@ import static net.bytebuddy.matcher.ElementMatchers.named;
  * @author jsjem
  * @author Roman Gushel
  */
+@SuppressWarnings("unchecked")
 public class FieldsIgnore{
 
     private final Map<Class<?>, Set<String>> ignoreMapping = new HashMap<Class<?>, Set<String>>();
@@ -149,6 +150,7 @@ public class FieldsIgnore{
     /**
      * Check whether field has to be ignored.
      *
+     * @param protoClass 注解识别到protoClass
      * @param field Field instance for test.
      * @return true if field class or field name in the ignore or field is not annotated by
      * {@link net.badata.protobuf.converter.annotation.ProtoField ProtoField}.

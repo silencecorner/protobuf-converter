@@ -110,7 +110,7 @@ public final class Configuration {
 
 		/**
 		 * Set {@code namingStrategy}.
-		 *
+		 * @param namingStrategy proto命名策略 {@link net.badata.protobuf.converter.naming.NamingStrategy}
 		 * @return {@link net.badata.protobuf.converter.Configuration.Builder Builder} instance.
 		 */
 		public Builder setNamingStrategy(NamingStrategy namingStrategy) {

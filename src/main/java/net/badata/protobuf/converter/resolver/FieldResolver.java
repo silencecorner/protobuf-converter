@@ -59,6 +59,7 @@ public interface FieldResolver {
 
 	/**
 	 * Setter for field type converter.
+	 * @param typeConverter 转换器
 	 */
 	void setTypeConverter(TypeConverter<?, ?>  typeConverter);
 
@@ -77,7 +78,7 @@ public interface FieldResolver {
 	DefaultValue getDefaultValue();
 
 	/**
-	 *
+	 * @return proto的命名策略
 	 */
 	NamingStrategy getNamingStrategy();
 }
