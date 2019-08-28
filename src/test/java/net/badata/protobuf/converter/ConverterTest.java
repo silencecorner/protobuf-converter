@@ -87,6 +87,7 @@ public class ConverterTest {
 		wrapperTest.setDoubleWrapperValue(-0.6);
 		wrapperTest.setIntWrapperValue(-101);
 		wrapperTest.setLongWrapperValue(-102L);
+		wrapperTest.setCreatedDate(LocalDateTime.now());
 
 
 		ConverterDomain.FieldConverterTest fieldConverterTest = new ConverterDomain.FieldConverterTest();
