@@ -49,29 +49,34 @@ public class DefaultMapperImpl implements Mapper {
 	@Override
 	public <T extends Message> MappingResult mapToDomainField(final FieldResolver fieldResolver, final T protobuf,
 			final Object domain) throws MappingException {
-		Object protobufFieldValue = getFieldValue(FieldUtils.createProtobufGetterName(fieldResolver), protobuf);
-		if (FieldUtils.isComplexType(fieldResolver.getField())) {
-			boolean hasFieldValue = true;
-			try {
-				String hasserName = FieldUtils.createProtobufHasserName(fieldResolver);
-				if (hasserName != null) {
-					hasFieldValue = hasFieldValue(hasserName, protobuf);
+		Descriptors.FieldDescriptor fieldDescriptor;
+		if ( (fieldDescriptor = findFieldByName(protobuf,fieldResolver)) != null) {
+			Object protobufFieldValue = protobuf.getField(fieldDescriptor);
+			if (FieldUtils.isComplexType(fieldResolver.getField())) {
+				boolean hasFieldValue = true;
+				try {
+					String hasserName = FieldUtils.createProtobufHasserName(fieldResolver);
+					if (hasserName != null) {
+						hasFieldValue = hasFieldValue(hasserName, protobuf);
+					}
+				} catch (MappingException ignored) {
+				} // not `has` method, continue
+				if (hasFieldValue) {
+					return new MappingResult(MappingResult.Result.NESTED_MAPPING, protobufFieldValue, domain);
 				}
-			} catch (MappingException ignored) {} // not `has` method, continue
-			if (hasFieldValue) {
-				return new MappingResult(MappingResult.Result.NESTED_MAPPING, protobufFieldValue, domain);
+				return new MappingResult(MappingResult.Result.MAPPED, null, domain);
 			}
-			return new MappingResult(MappingResult.Result.MAPPED, null, domain);
+			if (FieldUtils.isCollectionType(fieldResolver.getField())) {
+				return new MappingResult(MappingResult.Result.COLLECTION_MAPPING, protobufFieldValue, domain);
+			}
+			TypeConverter<?, ?> typeConverter = TYPE_CONVERTER_CACHE.get(new Pair<>(Primitives.wrap(fieldResolver.getField().getType()),
+					Primitives.wrap(protobufFieldValue.getClass())));
+			if (typeConverter != null) {
+				fieldResolver.setTypeConverter(typeConverter);
+			}
+			return new MappingResult(MappingResult.Result.MAPPED, protobufFieldValue, domain);
 		}
-		if (FieldUtils.isCollectionType(fieldResolver.getField())) {
-			return new MappingResult(MappingResult.Result.COLLECTION_MAPPING, protobufFieldValue, domain);
-		}
-		TypeConverter<?, ?> typeConverter = TYPE_CONVERTER_CACHE.get(new Pair<>(Primitives.wrap(fieldResolver.getField().getType()),
-				Primitives.wrap(protobufFieldValue.getClass())));
-		if (typeConverter != null) {
-			fieldResolver.setTypeConverter(typeConverter);
-		}
-		return new MappingResult(MappingResult.Result.MAPPED, protobufFieldValue, domain);
+		return null;
 	}
 	private boolean hasFieldValue(final String hasserName, final Object source) throws MappingException {
 		Class<?> sourceClass = source.getClass();
@@ -132,10 +137,12 @@ public class DefaultMapperImpl implements Mapper {
 		return null;
 	}
 
+	private static <T extends Message>  Descriptors.FieldDescriptor findFieldByName(final T protobuf, FieldResolver fieldResolver) {
+		return protobuf.getDescriptorForType().findFieldByName(translate(fieldResolver.getNamingStrategy(),fieldResolver.getProtobufName()));
+	}
 	private static Descriptors.FieldDescriptor findFieldByName(Message.Builder builder, FieldResolver fieldResolver) {
 		return builder.getDescriptorForType().findFieldByName(translate(fieldResolver.getNamingStrategy(),fieldResolver.getProtobufName()));
 	}
-
 	private static String translate(NamingStrategy namingStrategy, String fieldName){
 		switch (namingStrategy){
 			case NO_OP:

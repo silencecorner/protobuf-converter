@@ -175,6 +175,9 @@ public final class Converter {
 
 	private void fillDomainField(final FieldResolver fieldResolver, final MappingResult mappingResult)
 			throws WriteException {
+		if (mappingResult == null){
+			return;
+		}
 		DomainWriter fieldWriter = new DomainWriter(mappingResult.getDestination());
 		Object mappedValue = mappingResult.getValue();
 		switch (mappingResult.getCode()) {
