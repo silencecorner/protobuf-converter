@@ -11,7 +11,6 @@ import net.badata.protobuf.converter.utils.FieldUtils;
 
 import java.lang.Enum;
 import java.lang.reflect.InvocationTargetException;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;

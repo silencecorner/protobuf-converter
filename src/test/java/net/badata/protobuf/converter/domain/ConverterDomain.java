@@ -20,6 +20,7 @@ import net.badata.protobuf.converter.type.EnumStringConverter;
 import net.badata.protobuf.converter.type.SetListConverterImpl;
 
 import java.lang.reflect.Field;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -255,16 +256,12 @@ public class ConverterDomain {
 	@ProtoClass(ConverterProto.WrapperTest.class)
 	public static class WrapperTest {
 
-		@ProtoField
 		private Long longWrapperValue;
-		@ProtoField
 		private Integer intWrapperValue;
-		@ProtoField
 		private Float floatWrapperValue;
-		@ProtoField
 		private Double doubleWrapperValue;
-		@ProtoField
 		private Boolean booleanWrapperValue;
+		private LocalDateTime createdDate;
 
 		public Long getLongWrapperValue() {
 			return longWrapperValue;
@@ -306,6 +303,13 @@ public class ConverterDomain {
 			this.booleanWrapperValue = booleanWrapperValue;
 		}
 
+		public LocalDateTime getCreatedDate() {
+			return createdDate;
+		}
+
+		public void setCreatedDate(LocalDateTime createdDate) {
+			this.createdDate = createdDate;
+		}
 	}
 
 
