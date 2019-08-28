@@ -30,7 +30,7 @@ public class DefaultMapperImpl implements Mapper {
 	public static ConcurrentMap<Pair<?, ?>, TypeConverter> TYPE_CONVERTER_CACHE = new ConcurrentHashMap<Pair<?, ?>, TypeConverter>() {{
 		put(new Pair<>(Date.class, Long.class), new DateLongConverterImpl());
 		put(new Pair<>(Enum.class, String.class), new EnumStringConverter());
-		put(new Pair<>(LocalDateTime.class, Timestamp.class), new LocalDateTimeConverterImpl());
+		put(new Pair<>(LocalDateTime.class, Timestamp.class), new LocalDateTimeTimestampConverterImpl());
 		put(new Pair<>(Set.class, List.class), new SetListConverterImpl());
 		put(new Pair<>(Boolean.class, BoolValue.class), new BooleanBoolValueConverterImpl());
 		put(new Pair<>(Double.class, DoubleValue.class), new DoubleDoubleValueConverterImpl());

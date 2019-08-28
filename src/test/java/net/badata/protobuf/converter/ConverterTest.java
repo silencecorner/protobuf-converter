@@ -1,10 +1,9 @@
 package net.badata.protobuf.converter;
 
 import com.google.protobuf.*;
-import com.google.protobuf.util.Timestamps;
 import net.badata.protobuf.converter.domain.ConverterDomain;
 import net.badata.protobuf.converter.proto.ConverterProto;
-import net.badata.protobuf.converter.type.LocalDateTimeConverterImpl;
+import net.badata.protobuf.converter.type.LocalDateTimeTimestampConverterImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,7 +48,7 @@ public class ConverterTest {
 						.setLongWrapperValue(Int64Value.of(2L))
 						.setFloatWrapperValue(FloatValue.of(0.02F))
 						.setDoubleWrapperValue(DoubleValue.of(0.03))
-						.setCreatedDate(new LocalDateTimeConverterImpl().toProtobufValue(LocalDateTime.now()))
+						.setCreatedDate(new LocalDateTimeTimestampConverterImpl().toProtobufValue(LocalDateTime.now()))
 						.build())
 				.setPrimitiveValue(ConverterProto.PrimitiveTest.newBuilder()
 						.setBooleanValue(true)

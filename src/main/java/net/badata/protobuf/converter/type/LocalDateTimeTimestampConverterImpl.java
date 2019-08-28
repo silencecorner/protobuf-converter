@@ -6,7 +6,7 @@ import com.google.protobuf.util.Timestamps;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
-public class LocalDateTimeConverterImpl implements TypeConverter<LocalDateTime, Timestamp> {
+public class LocalDateTimeTimestampConverterImpl implements TypeConverter<LocalDateTime, Timestamp> {
     @Override
     public LocalDateTime toDomainValue(Object instance) {
         if (!instance.equals(Timestamp.getDefaultInstance())){
