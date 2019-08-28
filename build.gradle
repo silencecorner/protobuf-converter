@@ -1,5 +1,5 @@
 buildscript {
-    ext{
+    ext {
         protobufVersion = "3.7.1"
     }
     repositories {
@@ -15,6 +15,8 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
 apply plugin: 'com.google.protobuf'
 
 group = 'com.github.BAData'
@@ -25,10 +27,10 @@ repositories {
     mavenCentral()
 }
 
-[ compileJava, compileTestJava ]*.options*.encoding = 'UTF-8'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
-sourceCompatibility='1.8'
-targetCompatibility='1.8'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
 
 protobuf {
     protoc {
@@ -55,6 +57,74 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 }
 
 artifacts {
+    archives jar
     archives sourcesJar
     archives javadocJar
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    options.warnings = false
+}
+
+tasks.withType(Test) {
+    reports.junitXml.enabled = true
+    reports.html.enabled = false
+}
+publishing {
+    repositories {
+        if (project.version.endsWith('-SNAPSHOT')) {
+            maven {
+                credentials {
+                    username System.getenv('username')
+                    password System.getenv('password')
+                }
+                url System.getenv('snapshot_repo_url')
+            }
+        } else {
+            maven {
+                credentials {
+                    username System.getenv('username')
+                    password System.getenv('password')
+                }
+                url System.getenv('release_repo_url')
+            }
+        }
+
+    }
+    publications {
+        mainProjectPublication(MavenPublication) {
+            version version
+            from components.java
+
+            artifact sourcesJar {
+                classifier "sources"
+            }
+            artifact javadocJar {
+                classifier "javadoc"
+            }
+
+            pom.withXml {
+                // Fix dependency scoping.
+                asNode().dependencies.'*'.findAll() {
+                    it.scope.text() == 'runtime' && project.configurations.compile.allDependencies.find { dep ->
+                        dep.name == it.artifactId.text()
+                    }
+                }.each() {
+                    it.scope*.value = 'compile'
+                }
+                asNode().children().last() + {
+                    resolveStrategy = Closure.DELEGATE_FIRST
+                    name PROJECT_NAME
+                    description PROJECT_DESC
+                }
+            }
+        }
+    }
 }
