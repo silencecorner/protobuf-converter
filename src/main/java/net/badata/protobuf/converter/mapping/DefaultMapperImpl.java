@@ -9,7 +9,6 @@ import net.badata.protobuf.converter.resolver.FieldResolver;
 import net.badata.protobuf.converter.type.*;
 import net.badata.protobuf.converter.utils.FieldUtils;
 
-import java.lang.Enum;
 import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -29,7 +28,6 @@ import java.util.concurrent.ConcurrentMap;
 public class DefaultMapperImpl implements Mapper {
 	public static ConcurrentMap<Pair<?, ?>, TypeConverter> TYPE_CONVERTER_CACHE = new ConcurrentHashMap<Pair<?, ?>, TypeConverter>() {{
 		put(new Pair<>(Date.class, Long.class), new DateLongConverterImpl());
-		put(new Pair<>(Enum.class, String.class), new EnumStringConverter());
 		put(new Pair<>(LocalDateTime.class, Timestamp.class), new LocalDateTimeTimestampConverterImpl());
 		put(new Pair<>(Set.class, List.class), new SetListConverterImpl());
 		put(new Pair<>(Boolean.class, BoolValue.class), new BooleanBoolValueConverterImpl());
@@ -70,13 +68,24 @@ public class DefaultMapperImpl implements Mapper {
 			}
 			TypeConverter<?, ?> typeConverter = TYPE_CONVERTER_CACHE.get(new Pair<>(Primitives.wrap(fieldResolver.getField().getType()),
 					Primitives.wrap(protobufFieldValue.getClass())));
-			if (typeConverter != null) {
+			if (typeConverter != null && fieldResolver.getTypeConverter().getClass().equals(DefaultConverterImpl.class)) {
 				fieldResolver.setTypeConverter(typeConverter);
+			}else if (fieldResolver.getTypeConverter().getClass().equals(DefaultConverterImpl.class)
+					&& ProtocolMessageEnum.class.isAssignableFrom(fieldResolver.getField().getType())
+					&& protobufFieldValue instanceof Descriptors.EnumValueDescriptor){
+				try {
+					protobufFieldValue = fieldResolver.getField().getType().getMethod("valueOf",
+							Descriptors.EnumValueDescriptor.class).invoke(null,protobufFieldValue);
+				}catch (Exception e){
+					throw new MappingException(String.format("field: %s not mapped class %s",fieldResolver.getField(),fieldResolver.getField().getType()));
+				}
 			}
 			return new MappingResult(MappingResult.Result.MAPPED, protobufFieldValue, domain);
 		}
 		return null;
 	}
+
+
 	private boolean hasFieldValue(final String hasserName, final Object source) throws MappingException {
 		Class<?> sourceClass = source.getClass();
 		try {
@@ -128,7 +137,7 @@ public class DefaultMapperImpl implements Mapper {
 			Object obj = protobufBuilder.getField(fieldDescriptor);
 			TypeConverter<?, ?> typeConverter = TYPE_CONVERTER_CACHE.get(new Pair<>(Primitives.wrap(fieldResolver.getField().getType()),
 					Primitives.wrap(obj.getClass())));
-			if (typeConverter != null) {
+			if (typeConverter != null && fieldResolver.getTypeConverter().getClass().equals(DefaultConverterImpl.class)) {
 				fieldResolver.setTypeConverter(typeConverter);
 			}
 			return new MappingResult(MappingResult.Result.MAPPED, domainFieldValue, protobufBuilder);

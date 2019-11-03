@@ -15,7 +15,6 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'idea'
-apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'com.google.protobuf'
 
@@ -99,7 +98,7 @@ publishing {
 
     }
     publications {
-        mainProjectPublication(MavenPublication) {
+        maven(MavenPublication) {
             version version
             from components.java
 
