@@ -245,7 +245,7 @@ public final class Converter {
 	@SuppressWarnings("unchecked")
 	public <T, E extends Message> E toProtobuf(final Class<E> protobufClass, final T domain) {
 		if (domain == null) {
-			return null;
+			return createProtobufInstance(protobufClass);
 		}
 		E.Builder protobuf = createProtobuf(protobufClass);
 		ProtoClass protoClass = testDataBinding(domain.getClass(), protobufClass);
@@ -271,15 +271,25 @@ public final class Converter {
 		}
 	}
 
+
+	private <E extends Message> E createProtobufInstance(final Class<E> protobufClass) {
+		try {
+			return (E) protobufClass.getDeclaredMethod("getDefaultInstance").invoke(null);
+		} catch (IllegalAccessException e) {
+			throw new ConverterException("Can't access 'newBuilder()' method for " + protobufClass.getName(), e);
+		} catch (InvocationTargetException e) {
+			throw new ConverterException("Can't instantiate protobuf builder for " + protobufClass.getName(), e);
+		} catch (NoSuchMethodException e) {
+			throw new ConverterException("Method 'newBuilder()' not found in " + protobufClass.getName(), e);
+		}
+	}
+
 	private <E extends Message.Builder> void fillProtobuf(final E protobuf, final Object domain,
 			final ProtoClass protoClassAnnotation) throws MappingException, WriteException {
 		Class<?> domainClass = domain.getClass();
 		Mapper fieldMapper = AnnotationUtils.createMapper(protoClassAnnotation);
 		FieldResolverFactory fieldFactory = AnnotationUtils.createFieldFactory(protoClassAnnotation);
 		for (Field field : getDomainFields(domainClass)) {
-			if (field.getName().equals("wrapperTest")){
-				System.out.printf("hahah");
-			}
 			if (configuration.getIgnoredFields().ignored(protoClassAnnotation,field)) {
 				continue;
 			}
