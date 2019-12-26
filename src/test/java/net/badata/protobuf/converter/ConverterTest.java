@@ -234,7 +234,7 @@ public class ConverterTest {
 		Assert.assertEquals(conversionDomain.getEnumString().name(), conversionProto.getEnumString());
 		Assert.assertTrue(conversionDomain.getStringSetValue().remove(conversionProto.getStringSetValue(0)));
 
-		Assert.assertFalse(result.hasNullDefaultValue());
+		Assert.assertTrue(result.hasNullDefaultValue());
 
 		Assert.assertEquals(testDomain.getSimpleListValue().get(0), result.getStringListValue(0));
 		Assert.assertEquals(testDomain.getComplexListValue().get(0).getIntValue(),

@@ -276,11 +276,11 @@ public final class Converter {
 		try {
 			return (E) protobufClass.getDeclaredMethod("getDefaultInstance").invoke(null);
 		} catch (IllegalAccessException e) {
-			throw new ConverterException("Can't access 'newBuilder()' method for " + protobufClass.getName(), e);
+			throw new ConverterException("Can't access 'getDefaultInstance()' method for " + protobufClass.getName(), e);
 		} catch (InvocationTargetException e) {
-			throw new ConverterException("Can't instantiate protobuf builder for " + protobufClass.getName(), e);
+			throw new ConverterException("Can't get protobuf default instance for " + protobufClass.getName(), e);
 		} catch (NoSuchMethodException e) {
-			throw new ConverterException("Method 'newBuilder()' not found in " + protobufClass.getName(), e);
+			throw new ConverterException("Method 'getDefaultInstance()' not found in " + protobufClass.getName(), e);
 		}
 	}
 
